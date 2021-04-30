@@ -1,6 +1,6 @@
 # PCB(s) for the XFM2/XVA1 Project
 
-This site contains some stuff I have built for the excellent free FPGA XFM2/XVA FPGA synths. You can find them here: https://www.futur3soundz.com.
+This site contains some stuff I have built for the excellent FPGA XFM2/XVA FPGA DIY synths by futur3soundz/René Ceballos. You can find them here: https://www.futur3soundz.com.
 
 I tinker with this stuff when I feel like it and I release it when it's not perfect. I'm not an electronics expert, so I may not always know what I'm doing. Use at your own risk.
 
