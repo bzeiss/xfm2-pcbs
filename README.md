@@ -8,7 +8,7 @@ Be smart. Don't just trust the stuff I offer for download here. Take a look at t
 
 ## XFM2/XVA Basic PCB
 
-This PCB is essentially a hacked together PCB version of the original XFM2 schematic with some added pins for spdif, uart, led's and so on. It's essentially something for those of us who want something slightly nicer than a soldered perfboard or those of us who don't want to do the wiring by hand.
+This PCB is essentially a hacked together PCB version of the original XFM2 schematic with some added pins for spdif, uart, led's and so on. It's essentially something for those of us who want something slightly nicer than a soldered perfboard and who don't want to do the wiring by hand.
 
 **3D Render:**
 ![xfm2basic](https://user-images.githubusercontent.com/884834/114622434-3efde000-9cae-11eb-929d-81e718634022.jpg)
