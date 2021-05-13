@@ -21,7 +21,7 @@ This PCB is essentially a hacked together PCB version of the original XFM2 schem
 
 **Gerber ZIP:**
 
-https://github.com/bzeiss/xfmpcbs/blob/main/basic/gerber/xfm2-basic-v1.0.zip
+https://github.com/bzeiss/xfm2-pcbs/blob/xfm2-xva1-basic-pcb-1.0/basic/gerber/xfm2-basic-v1.0.zip
 
 **Comments:**
 
