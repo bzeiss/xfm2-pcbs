@@ -937,11 +937,6 @@
       (net 67 VCC))
     (pad 48 thru_hole oval (at 15.24 0 180) (size 2.4 1.6) (drill 0.8) (layers *.Cu *.Mask)
       (net 28 /EEPROM_SDA))
-    (model ${KISYS3DMOD}/Package_DIP.3dshapes/DIP-48_W15.24mm.wrl
-      (at (xyz 0 0 0))
-      (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
-    )
   )
 
   (module Package_SO:SOIC-8_5.275x5.275mm_P1.27mm (layer F.Cu) (tedit 5D9F72B1) (tstamp 609EAA12)
