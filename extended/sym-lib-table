@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name xfm2)(type Legacy)(uri ${KIPRJMOD}/library/xfm2.lib)(options "")(descr ""))
+  (lib (name samacsys)(type Legacy)(uri ${KIPRJMOD}/library/SamacSys_Parts.lib)(options "")(descr ""))
+)

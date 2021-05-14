@@ -1,0 +1,98 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model NE555DR
+#/6648/2/2.37/8/4/Integrated Circuit
+DEF NE555DR IC 0 30 Y Y 1 F N
+F0 "IC" 1050 600 50 H V L CNN
+F1 "NE555DR" 1050 500 50 H V L CNN
+F2 "SOIC127P600X175-8N" 1050 400 50 H I L CNN
+F3 "http://www.ti.com/lit/ds/symlink/ne555.pdf" 1050 300 50 H I L CNN
+F4 "Single Precision Timer" 1050 200 50 H I L CNN "Description"
+F5 "1.75" 1050 100 50 H I L CNN "Height"
+F6 "Texas Instruments" 1050 0 50 H I L CNN "Manufacturer_Name"
+F7 "NE555DR" 1050 -100 50 H I L CNN "Manufacturer_Part_Number"
+F8 "595-NE555DR" 1050 -200 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.com/Search/Refine.aspx?Keyword=595-NE555DR" 1050 -300 50 H I L CNN "Mouser Price/Stock"
+F10 "1218414" 1050 -400 50 H I L CNN "RS Part Number"
+F11 "http//uk.rs-online.com/web/p/products/1218414" 1050 -500 50 H I L CNN "RS Price/Stock"
+DRAW
+X GND 1 600 -1000 200 U 50 50 0 0 B
+X TRIG 2 0 -400 200 R 50 50 0 0 B
+X OUT 3 1200 -200 200 L 50 50 0 0 B
+X ~RESET 4 0 0 200 R 50 50 0 0 B
+X CONT 5 500 600 200 D 50 50 0 0 B
+X THRES 6 0 -300 200 R 50 50 0 0 B
+X DISCH 7 0 -100 200 R 50 50 0 0 B
+X VCC 8 700 600 200 D 50 50 0 0 B
+P 5 0 1 6 200 400 1000 400 1000 -800 200 -800 200 400 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model 24LC1025T-I_SM
+#/2374491/499385/2.49/8/4/Integrated Circuit
+DEF 24LC1025T-I_SM IC 0 30 Y Y 1 F N
+F0 "IC" 850 300 50 H V L CNN
+F1 "24LC1025T-I_SM" 850 200 50 H V L CNN
+F2 "SOIC127P794X203-8N" 850 100 50 H I L CNN
+F3 "https://ww1.microchip.com/downloads/en/DeviceDoc/20001941L.pdf" 850 0 50 H I L CNN
+F4 "EEPROM 1024K 128KX8 2.5V SER EE" 850 -100 50 H I L CNN "Description"
+F5 "2.03" 850 -200 50 H I L CNN "Height"
+F6 "579-24LC1025T-I/SM" 850 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/Microchip-Technology/24LC1025T-I-SM?qs=vzbC9rP1Y6YAHND9XWEJNA%3D%3D" 850 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Microchip" 850 -500 50 H I L CNN "Manufacturer_Name"
+F9 "24LC1025T-I/SM" 850 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X A0 1 0 0 200 R 50 50 0 0 P
+X A1 2 0 -100 200 R 50 50 0 0 P
+X A2 3 0 -200 200 R 50 50 0 0 P
+X VSS 4 0 -300 200 R 50 50 0 0 P
+X VCC 8 1000 0 200 L 50 50 0 0 P
+X WP 7 1000 -100 200 L 50 50 0 0 P
+X SCL 6 1000 -200 200 L 50 50 0 0 P
+X SDA 5 1000 -300 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 800 100 800 -400 200 -400 200 100 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model KLPX-0848A-2-Y
+#/2230151/499385/2.49/2/4/Connector
+DEF KLPX-0848A-2-Y J 0 30 Y Y 1 F N
+F0 "J" 850 300 50 H V L CNN
+F1 "KLPX-0848A-2-Y" 850 200 50 H V L CNN
+F2 "KLPX0848A2Y" 850 100 50 H I L CNN
+F3 "http://www.kycon.com/Pub_Eng_Draw/KLPX-0848A-2-X.pdf" 850 0 50 H I L CNN
+F4 "RCA PHONO JACK, RT< YLW ROHS COM" 850 -100 50 H I L CNN "Description"
+F5 "13" 850 -200 50 H I L CNN "Height"
+F6 "" 850 -300 50 H I L CNN "Mouser Part Number"
+F7 "" 850 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Kycon, Inc." 850 -500 50 H I L CNN "Manufacturer_Name"
+F9 "KLPX-0848A-2-Y" 850 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X SLEEVE 1 0 0 200 R 50 50 0 0 P
+X TIP 2 0 -100 200 R 50 50 0 0 P
+P 5 0 1 6 200 100 800 100 800 -200 200 -200 200 100 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model 1N4148WT
+#/968121/499385/2.49/2/4/Diode
+DEF 1N4148WT D 0 30 Y Y 1 F N
+F0 "D" 450 200 50 H V L CNN
+F1 "1N4148WT" 450 100 50 H V L CNN
+F2 "SODFL1608X70N" 450 0 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/2/1N4148WT.pdf" 450 -100 50 H I L CNN
+F4 "ON SEMICONDUCTOR - 1N4148WT - DIODE, SWITCHING, 75V, SOD-523F-2" 450 -200 50 H I L CNN "Description"
+F5 "0.7" 450 -300 50 H I L CNN "Height"
+F6 "512-1N4148WT" 450 -400 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/ON-Semiconductor-Fairchild/1N4148WT?qs=2%2FYqgE%252BHg%252BJTXBWnIBbu3Q%3D%3D" 450 -500 50 H I L CNN "Mouser Price/Stock"
+F8 "ON Semiconductor" 450 -600 50 H I L CNN "Manufacturer_Name"
+F9 "1N4148WT" 450 -700 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 600 0 200 L 50 50 0 0 P
+P 2 0 1 6 200 100 200 -100 N
+P 4 0 1 10 200 0 400 100 400 -100 200 0 F
+ENDDRAW
+ENDDEF
+#
+#End Library
