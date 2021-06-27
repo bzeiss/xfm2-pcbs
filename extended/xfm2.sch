@@ -5,7 +5,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "xfm2/xva1 extended pcb"
-Date "2021-05-13"
+Date "2021-06-27"
 Rev "1.1"
 Comp ""
 Comment1 ""
@@ -1065,9 +1065,6 @@ F 3 "~" H 3000 6410 50  0001 C CNN
 	1    2950 6450
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3600 6350 3600 7150
-Connection ~ 3600 6350
 Text Notes 2750 5100 0    79   ~ 0
 Eurorack\nA-100
 Wire Notes Line
@@ -1142,8 +1139,6 @@ F 3 "" H 4350 6650 50  0001 C CNN
 	1    4350 6650
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3600 6350 3700 6350
 Wire Wire Line
 	3300 6550 3300 6700
 Wire Wire Line
@@ -1369,8 +1364,8 @@ $Comp
 L Regulator_Linear:LM1117-3.3 U7
 U 1 1 610872B2
 P 4350 7150
-F 0 "U7" H 4150 7300 50  0000 C CNN
-F 1 "LM1117-3.3" H 4500 7300 50  0000 C CNN
+F 0 "U7" H 4450 6900 50  0000 C CNN
+F 1 "LM1117-3.3" H 4350 7300 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 4350 7150 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/lm1117.pdf" H 4350 7150 50  0001 C CNN
 	1    4350 7150
@@ -1426,10 +1421,6 @@ F 3 "" H 3750 7450 50  0001 C CNN
 	1    3750 7450
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3750 7150 4050 7150
-Wire Wire Line
-	3600 7150 3750 7150
 Connection ~ 3750 7150
 $Comp
 L Device:C C2
@@ -1632,12 +1623,12 @@ Control Voltage
 $Comp
 L Connector:AudioJack2 J8
 U 1 1 61995198
-P 1500 2450
-F 0 "J8" H 1532 2775 50  0000 C CNN
-F 1 "AudioJack2" H 1532 2684 50  0000 C CNN
-F 2 "Connector_Audio:Jack_6.35mm_Neutrik_NRJ6HM-1_Horizontal" H 1500 2450 50  0001 C CNN
-F 3 "~" H 1500 2450 50  0001 C CNN
-	1    1500 2450
+P 1300 2350
+F 0 "J8" H 1332 2675 50  0000 C CNN
+F 1 "AudioJack2" H 1332 2584 50  0000 C CNN
+F 2 "xfm2:Jack_6.35mm_Neutrik_NMJ6HFD2_Horizontal-ST-only" H 1300 2350 50  0001 C CNN
+F 3 "~" H 1300 2350 50  0001 C CNN
+	1    1300 2350
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -1669,7 +1660,7 @@ F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 4600 2450 50 
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1700 2350 1750 2350
+	1500 2350 1750 2350
 $Comp
 L Device:R R11
 U 1 1 6190F072
@@ -1744,12 +1735,12 @@ $EndComp
 $Comp
 L power:GND #PWR0150
 U 1 1 61B56DAD
-P 1700 2450
-F 0 "#PWR0150" H 1700 2200 50  0001 C CNN
-F 1 "GND" V 1705 2322 50  0000 R CNN
-F 2 "" H 1700 2450 50  0001 C CNN
-F 3 "" H 1700 2450 50  0001 C CNN
-	1    1700 2450
+P 1750 2000
+F 0 "#PWR0150" H 1750 1750 50  0001 C CNN
+F 1 "GND" V 1755 1872 50  0000 R CNN
+F 2 "" H 1750 2000 50  0001 C CNN
+F 3 "" H 1750 2000 50  0001 C CNN
+	1    1750 2000
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -1800,12 +1791,12 @@ Connection ~ 3100 2600
 $Comp
 L Connector:AudioJack2 J9
 U 1 1 61C477C6
-P 1500 3700
-F 0 "J9" H 1532 4025 50  0000 C CNN
-F 1 "AudioJack2" H 1532 3934 50  0000 C CNN
-F 2 "Connector_Audio:Jack_6.35mm_Neutrik_NRJ6HM-1_Horizontal" H 1500 3700 50  0001 C CNN
-F 3 "~" H 1500 3700 50  0001 C CNN
-	1    1500 3700
+P 1250 3600
+F 0 "J9" H 1282 3925 50  0000 C CNN
+F 1 "AudioJack2" H 1282 3834 50  0000 C CNN
+F 2 "xfm2:Jack_6.35mm_Neutrik_NMJ6HFD2_Horizontal-ST-only" H 1250 3600 50  0001 C CNN
+F 3 "~" H 1250 3600 50  0001 C CNN
+	1    1250 3600
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1818,17 +1809,6 @@ F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1830 3600 50  0
 F 3 "~" H 1900 3600 50  0001 C CNN
 	1    1900 3600
 	0    1    1    0   
-$EndComp
-$Comp
-L power:GND #PWR0151
-U 1 1 61C483A4
-P 1700 3700
-F 0 "#PWR0151" H 1700 3450 50  0001 C CNN
-F 1 "GND" V 1705 3572 50  0000 R CNN
-F 2 "" H 1700 3700 50  0001 C CNN
-F 3 "" H 1700 3700 50  0001 C CNN
-	1    1700 3700
-	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R R14
@@ -1853,7 +1833,7 @@ F 3 "" H 2100 3150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1700 3600 1750 3600
+	1450 3600 1750 3600
 Wire Wire Line
 	2050 3600 2100 3600
 Wire Wire Line
@@ -2143,7 +2123,7 @@ L Device:LED D7
 U 1 1 60D85927
 P 9300 6250
 F 0 "D7" H 9293 5995 50  0000 C CNN
-F 1 "LED_CLIP" H 9293 6086 50  0000 C CNN
+F 1 "LED_POWER" H 9293 6086 50  0000 C CNN
 F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 9300 6250 50  0001 C CNN
 F 3 "~" H 9300 6250 50  0001 C CNN
 	1    9300 6250
@@ -2189,4 +2169,50 @@ F 3 "" H 1850 5800 50  0001 C CNN
 $EndComp
 NoConn ~ 1150 6400
 NoConn ~ 6750 2650
+NoConn ~ 6350 400 
+NoConn ~ 5050 5400
+Wire Wire Line
+	3750 7150 4050 7150
+Wire Wire Line
+	3600 6350 3700 6350
+Wire Wire Line
+	3600 7150 3750 7150
+$Comp
+L power:+5V #PWR0159
+U 1 1 60F43BCA
+P 3600 7150
+F 0 "#PWR0159" H 3600 7000 50  0001 C CNN
+F 1 "+5V" V 3615 7278 50  0000 L CNN
+F 2 "" H 3600 7150 50  0001 C CNN
+F 3 "" H 3600 7150 50  0001 C CNN
+	1    3600 7150
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	1500 2250 1600 2250
+Wire Wire Line
+	1600 2250 1600 1950
+Wire Wire Line
+	1600 1950 1750 1950
+Wire Wire Line
+	1750 1950 1750 2000
+Wire Wire Line
+	1450 3500 1600 3500
+Wire Wire Line
+	1600 3500 1600 3200
+Wire Wire Line
+	1600 3200 1750 3200
+Wire Wire Line
+	1750 3200 1750 3250
+$Comp
+L power:GND #PWR0151
+U 1 1 61C483A4
+P 1750 3250
+F 0 "#PWR0151" H 1750 3000 50  0001 C CNN
+F 1 "GND" V 1755 3122 50  0000 R CNN
+F 2 "" H 1750 3250 50  0001 C CNN
+F 3 "" H 1750 3250 50  0001 C CNN
+	1    1750 3250
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
