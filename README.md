@@ -32,5 +32,5 @@ The BOM is the same as the one futur3soundz, except for the optional pins that y
 ## XFM2/XVA Extended PCB
 This is work in progress. The first version is the repository had errors. The new one needs a few more checks and needs to be routed again. The extended board additionally has Midi Out, Midi Thru, SPDIF, CVs and the LEDs.
 
-![image](https://user-images.githubusercontent.com/884834/123544248-ae825800-d752-11eb-8b44-916159f1332f.png)
+![image](https://user-images.githubusercontent.com/884834/123552522-cff53b00-d776-11eb-8752-e123b12818de.png)
 
