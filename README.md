@@ -30,8 +30,9 @@ Please know what you are doing when you intend to use this.
 The BOM is the same as the one futur3soundz, except for the optional pins that you may or may not want to add. For that, you'll need some additional 2.54mm pin headers. Please use sockets at least for the CMOD A7 and possibly also for the DAC.
 
 ## XFM2/XVA Extended PCB
-This is work in progress. The first version is the repository had errors. The new one needs a few more checks and needs to be routed again. The extended board additionally has Midi Out, Midi Thru, SPDIF, CVs and the LEDs.
+This is work in progress. The first version is the repository had errors. The new one needs is I think done now and I have ordered a test pcb. Don't use it yet as it's still untested.
 
 ![image](https://user-images.githubusercontent.com/884834/123553683-003fd800-d77d-11eb-9ecb-b90e794388ec.png)
 
+![image](https://user-images.githubusercontent.com/884834/123553788-8e1bc300-d77d-11eb-8298-3ce04cf766a5.png)
 
