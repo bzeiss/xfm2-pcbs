@@ -38,3 +38,4 @@ This is work in progress. The first version is the repository had errors. The ne
 
 ![image](https://user-images.githubusercontent.com/884834/123553788-8e1bc300-d77d-11eb-8298-3ce04cf766a5.png)
 
+Schematic: https://github.com/bzeiss/xfm2-pcbs/blob/main/extended/pdf/schematic.pdf
