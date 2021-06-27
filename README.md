@@ -2,9 +2,11 @@
 
 This site contains some stuff I have built for the excellent FPGA XFM2/XVA FPGA DIY synths by futur3soundz/René Ceballos. You can find them here: https://www.futur3soundz.com.
 
-I tinker with this stuff when I feel like it and I make it public when it's not perfect. I'm not an electronics expert, so I may not always know what I'm doing. I learn the necessary electronics as I use it. Use at your own risk.
+I tinker with electronics, release stuff when I feel like it and I make it public when it's not perfect. I'm not an electronics expert, so I may not always know what I'm doing. I learn the necessary electronics as I use it. Use at your own risk.
 
 Be smart. Don't just trust the stuff I offer for download here. Take a look at the schematic and the PCB design beforehand and be sure not to solder the Digilent CMOD A7 and possibly also the DAC directly onto the PCB, but use sockets so that you can always dismiss the PCB if you like to do something different with those more expensive components, if someone else made a better PCB or if there is a problem on the PCB that I'm not aware of.
+
+Feedback is always very welcome 😄
 
 ## XFM2/XVA Basic PCB
 
