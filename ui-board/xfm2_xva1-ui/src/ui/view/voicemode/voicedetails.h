@@ -2,16 +2,17 @@
 #define VOICEDETAILS_H
 
 #include "../../ui-element.h"
+#include "../../model/voicemodel.h"
 
 class VoiceDetails : UiElement {
 public:
-    VoiceDetails();
+    VoiceDetails(VoiceModel *voiceModel);
     void draw() override;
-    void setPatchName(char *patchName);
+    void updateVoiceModel(VoiceModel *voiceModel);
 private:
-    char *patchName;
+    VoiceModel *voiceModel;
     void drawVoiceHead();
-    void drawPatchName();
+    void drawPatchName();    
 };
 
 #endif

@@ -2,14 +2,8 @@
 
 // ---------------------------------------------------------------------------------------
 
-VoiceDetails::VoiceDetails() {
-    patchName = strdup("Uninitialized");
-}
-
-// ---------------------------------------------------------------------------------------
-
-void VoiceDetails::setPatchName(char *patchName) {
-    this->patchName = patchName;
+VoiceDetails::VoiceDetails(VoiceModel *voiceModel) {
+    this->voiceModel = voiceModel;
 }
 
 // ---------------------------------------------------------------------------------------
@@ -41,15 +35,20 @@ void VoiceDetails::drawPatchName() {
     u8g2->setFont(u8g2_font_luRS19_tf);
 
 //    int16_t textWidth = u8g2->getUTF8Width(this->patchName);
-    int16_t textWidth = u8g2->getUTF8Width(patchName);
+    int16_t textWidth = u8g2->getUTF8Width(voiceModel->getVoiceName());
     // Serial.print("text width: ");
     // Serial.print(textWidth);
-    // Serial.println();
+    //Serial.print(this->voiceModel->voiceName);
+
     int16_t offset=((240-textWidth)/2)-1;
 
     u8g2->setCursor(offset, ((64-6-6-1)/2)+(32/2));
     //  u8g2.setCursor(offset, 32);
-    u8g2->print(patchName);
+    u8g2->print(voiceModel->getVoiceName());
 }
 
 // ---------------------------------------------------------------------------------------
+
+void VoiceDetails::updateVoiceModel(VoiceModel *voiceModel) {
+    this->voiceModel = voiceModel;
+}
