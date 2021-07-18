@@ -2,6 +2,20 @@
 #include "functionkeys-ui.h"
 #include "../../ui-common.h"
 
+// ---------------------------------------------------------------------------------------
+
+FunctionKeysUI::FunctionKeysUI(FunctionKeys *functionKeys) {
+    this->functionKeys = functionKeys;
+}
+
+// ---------------------------------------------------------------------------------------
+
+FunctionKeysUI::~FunctionKeysUI() {
+    delete this->functionKeys;
+}
+
+// ---------------------------------------------------------------------------------------
+
 void FunctionKeysUI::draw() {
     u8g2->setFont(u8g2_font_5x8_mf);
     int16_t spacing=240/8;
@@ -30,6 +44,3 @@ void FunctionKeysUI::draw() {
     u8g2->drawHLine(0,57,240);
 }
 
-FunctionKeysUI::FunctionKeysUI(FunctionKeys *functionKeys) {
-    this->functionKeys = functionKeys;
-}

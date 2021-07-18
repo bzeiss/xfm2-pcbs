@@ -13,6 +13,7 @@ public:
     char *f8=nullptr;
 
     FunctionKeys();
+    ~FunctionKeys();
 };
 
 #endif

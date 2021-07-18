@@ -8,6 +8,11 @@ VoiceDetails::VoiceDetails(VoiceModel *voiceModel) {
 
 // ---------------------------------------------------------------------------------------
 
+VoiceDetails::~VoiceDetails() {
+}
+
+// ---------------------------------------------------------------------------------------
+
 void VoiceDetails::draw() {
     drawVoiceHead();
     drawPatchName();

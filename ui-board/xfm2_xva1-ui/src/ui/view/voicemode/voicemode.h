@@ -8,7 +8,8 @@
 
 class VoiceMode : public UiElement {
 public:
-    VoiceMode();
+    VoiceMode(VoiceModel *voiceModel);
+    virtual ~VoiceMode();
     void draw() override;
     void updateVoiceModel(VoiceModel *voiceModel);
     VoiceModel *getVoiceModel();

@@ -3,6 +3,7 @@
 #include "ui/model/functionkeys.h"
 #include "ui/view/voicemode/voicemode.h"
 #include "ui/model/voicemodel.h"
+#include "common.h"
 
 #ifdef U8X8_HAVE_HW_SPI
 #include <SPI.h>
@@ -13,6 +14,9 @@
 
 CtrlBoard *ctrlboard;
 VoiceMode *voiceMode;
+VoiceModel *voiceModel = nullptr;
+const char *patchNames[5] = {"GrandPiano","Arianne","Dyno E.Pno","BrasChoral","Nasty Saw"};
+int i = 0;
 
 // =======================================================================================
 
@@ -20,27 +24,23 @@ void setup(void) {
   Serial.begin(9600);
   ctrlboard = new CtrlBoard();
   setupUi();
-  voiceMode = new VoiceMode();
+  voiceMode = new VoiceMode(nullptr);
 }
 
 // =======================================================================================
 
+
 void loop(void) {
-  voiceMode->updateVoiceModel(new VoiceModel(strdup("GrandPiano")));
+  delete voiceModel;
+  voiceModel = new VoiceModel(patchNames[i]);  
+  voiceMode->updateVoiceModel(voiceModel);
   voiceMode->draw();
-  delay(1000);
-  voiceMode->updateVoiceModel(new VoiceModel(strdup("Arianne")));
-  voiceMode->draw();
-  delay(1000);
-  voiceMode->updateVoiceModel(new VoiceModel(strdup("Dyno E.Pno")));
-  voiceMode->draw();
-  delay(1000);
-  voiceMode->updateVoiceModel(new VoiceModel(strdup("BrasChoral")));
-  voiceMode->draw();
-  delay(1000);
-  voiceMode->updateVoiceModel(new VoiceModel(strdup("Nasty Saw")));
-  voiceMode->draw();
-  delay(1000);
+  delay(100);
+  i++;
+  if (i>5) 
+    i = 0;
+
+  //printFreeMemory();
 
   //ctrlboard->handleLoop();
 }

@@ -3,8 +3,8 @@
 
 // ---------------------------------------------------------------------------------------
 
-VoiceMode::VoiceMode() {
-    this->voiceModel = new VoiceModel("-");
+VoiceMode::VoiceMode(VoiceModel *voiceModel) {
+    this->voiceModel = voiceModel;
     FunctionKeys *functionKeys = new FunctionKeys();
     functionKeys->f1 = strdup("Send");
     functionKeys->f7 = strdup("Ctrl");
@@ -12,6 +12,11 @@ VoiceMode::VoiceMode() {
 
     this->functionKeyUi = new FunctionKeysUI(functionKeys);
     this->voiceDetails = new VoiceDetails(voiceModel);
+}
+
+VoiceMode::~VoiceMode() {
+    delete this->functionKeyUi;
+    delete this->voiceDetails;
 }
 
 // ---------------------------------------------------------------------------------------
@@ -26,10 +31,8 @@ void VoiceMode::draw() {
 // ---------------------------------------------------------------------------------------
 
 void VoiceMode::updateVoiceModel(VoiceModel *voiceModel) {
-    VoiceModel *oldVoiceModel = this->voiceModel;
     this->voiceModel = voiceModel;
     this->voiceDetails->updateVoiceModel(voiceModel);
-    delete oldVoiceModel;
 }
 
 // ---------------------------------------------------------------------------------------

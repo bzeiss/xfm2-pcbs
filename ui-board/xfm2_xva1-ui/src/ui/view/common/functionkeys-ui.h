@@ -8,6 +8,7 @@
 class FunctionKeysUI : public UiElement {
 public:
     FunctionKeysUI(FunctionKeys *functionKeys);
+    virtual ~FunctionKeysUI();
     void draw();
 private:
     FunctionKeys *functionKeys;

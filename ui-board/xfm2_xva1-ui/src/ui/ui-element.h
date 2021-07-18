@@ -6,6 +6,7 @@
 class UiElement {
 public:
     UiElement();
+    ~UiElement();
     virtual void draw() = 0;
 protected:
     void initDraw();

@@ -7,6 +7,7 @@
 class VoiceDetails : UiElement {
 public:
     VoiceDetails(VoiceModel *voiceModel);
+    virtual ~VoiceDetails();
     void draw() override;
     void updateVoiceModel(VoiceModel *voiceModel);
 private:
