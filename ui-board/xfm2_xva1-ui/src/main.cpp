@@ -25,20 +25,39 @@ void setup(void) {
   ctrlboard = new CtrlBoard();
   setupUi();
   voiceMode = new VoiceMode(nullptr);
+  voiceModel = new VoiceModel(patchNames[i]);  
+  voiceMode->updateVoiceModel(voiceModel);
+  voiceMode->draw();
 }
 
 // =======================================================================================
 
-
-void loop(void) {
+void updateVoiceModel() {
   delete voiceModel;
   voiceModel = new VoiceModel(patchNames[i]);  
   voiceMode->updateVoiceModel(voiceModel);
   voiceMode->draw();
-  delay(100);
-  i++;
-  if (i>5) 
-    i = 0;
+}
+
+void loop(void) {
+  if (Serial.available()) {
+    char val = Serial.read();
+    
+    if (val == 'u') { // up
+    } else if (val == 'd') { // down
+    } else if (val == 'l') { // left
+      i--;
+      if (i<0) 
+        i = 4;
+      updateVoiceModel();
+    } else if (val == 'r') { // right
+      i++;
+      if (i>4) 
+        i = 0;
+      updateVoiceModel();
+    } else if (val == 'e') {      
+    }
+  }
 
   //printFreeMemory();
 
