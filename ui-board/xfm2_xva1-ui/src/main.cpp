@@ -23,6 +23,7 @@ int i = 0;
 void setup(void) {
   Serial.begin(9600);
   ctrlboard = new CtrlBoard();
+  ctrlboard->setup();
   setupUi();
   voiceMode = new VoiceMode(nullptr);
   voiceModel = new VoiceModel(patchNames[i]);  
@@ -58,8 +59,7 @@ void loop(void) {
     } else if (val == 'e') {      
     }
   }
+  ctrlboard->handleLoop();
 
   //printFreeMemory();
-
-  //ctrlboard->handleLoop();
 }
