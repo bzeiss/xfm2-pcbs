@@ -4,6 +4,7 @@
 #include <Adafruit_MCP23017.h>
 #include "../ui/view/voicemode/voicemode.h"
 #include "../ui/model/voicemodel.h"
+#include "../synth/xfm2.h"
 
 #define BUTTON1_PIN 8
 #define BUTTON2_PIN 9
@@ -16,9 +17,14 @@
 
 class CtrlBoard {
 public:
-    void setup(VoiceMode *voiceMode);
+    CtrlBoard();
+    ~CtrlBoard();
+    void setVoiceMode(VoiceMode *voiceMode);
     void handleLoop();
 private:
+    void initializeFunctionButtons();
+    void handleFunctioButtons();
+
     void buttonPressed_f1();
     void buttonPressed_f2();
     void buttonPressed_f3();
@@ -33,7 +39,8 @@ private:
 
     Adafruit_MCP23017 mcp;
     int voiceNumber = 0;
-    VoiceMode *voiceMode;
+    VoiceMode *voiceMode = nullptr;
+    Xfm2 *xfm2 = nullptr;
 };
 
 #endif

@@ -20,12 +20,13 @@ void setup(void) {
   VoiceModel *voiceModel = nullptr;
 
   Serial.begin(9600);
-  ctrlboard = new CtrlBoard();
+
   setupUi();
   VoiceMode *voiceMode = new VoiceMode(nullptr);
   voiceModel = new VoiceModel(patchNames[0]);  // adapt the index zero later
   voiceMode->updateVoiceModel(voiceModel);
-  ctrlboard->setup(voiceMode);
+  ctrlboard = new CtrlBoard();
+  ctrlboard->setVoiceMode(voiceMode);
   voiceMode->draw(); 
 }
 

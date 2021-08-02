@@ -4,10 +4,15 @@
 
 // ---------------------------------------------------------------------------------------
 
-void CtrlBoard::setup(VoiceMode *voiceMode) {
-  this->voiceMode = voiceMode;
+CtrlBoard::CtrlBoard() {
   mcp.begin();
+  initializeFunctionButtons();
+  this->xfm2 = new Xfm2(&Serial1);
+}
 
+// ---------------------------------------------------------------------------------------
+
+void CtrlBoard::initializeFunctionButtons() {
   mcp.pinMode(BUTTON1_PIN, INPUT);
   mcp.pullUp(BUTTON1_PIN, HIGH);
   mcp.pinMode(BUTTON2_PIN, INPUT);
@@ -24,6 +29,17 @@ void CtrlBoard::setup(VoiceMode *voiceMode) {
   mcp.pullUp(BUTTON7_PIN, HIGH);
   mcp.pinMode(BUTTON8_PIN, INPUT);
   mcp.pullUp(BUTTON8_PIN, HIGH);
+}
+
+// ---------------------------------------------------------------------------------------
+
+CtrlBoard::~CtrlBoard() {
+}
+
+// ---------------------------------------------------------------------------------------
+
+void CtrlBoard::setVoiceMode(VoiceMode *voiceMode) {
+  this->voiceMode = voiceMode;
 }
 
 // ---------------------------------------------------------------------------------------
@@ -48,7 +64,12 @@ void CtrlBoard::handleLoop() {
     } else if (val == 'e') {      
     }
   }
+  handleFunctioButtons();
+}
 
+// ---------------------------------------------------------------------------------------
+
+void CtrlBoard::handleFunctioButtons() {
   if (!mcp.digitalRead(BUTTON1_PIN)) {
     buttonPressed_f1();
     delay(250);
@@ -132,10 +153,7 @@ void CtrlBoard::buttonPressed_f7() {
 
   updateVoiceModel();
 
-  Serial1.begin(500000);
-  Serial1.write('r');
-  Serial1.write(voiceNumber);
-  Serial1.end();
+  xfm2->loadProgram(voiceNumber);
 }
 
 // ---------------------------------------------------------------------------------------
@@ -151,9 +169,7 @@ void CtrlBoard::buttonPressed_f8() {
   updateVoiceModel();
   Serial1.begin(500000);
 
-  Serial1.write('r');
-  Serial1.write(voiceNumber);
-  Serial1.end();
+  xfm2->loadProgram(voiceNumber);
 }
 
 // ---------------------------------------------------------------------------------------
