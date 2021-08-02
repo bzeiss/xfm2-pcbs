@@ -1,7 +1,11 @@
 #include "ctrlboard.h"
+#include "../common.h"
 #include <Arduino.h>
 
-void CtrlBoard::setup() {
+// ---------------------------------------------------------------------------------------
+
+void CtrlBoard::setup(VoiceMode *voiceMode) {
+  this->voiceMode = voiceMode;
   mcp.begin();
 
   mcp.pinMode(BUTTON1_PIN, INPUT);
@@ -22,7 +26,29 @@ void CtrlBoard::setup() {
   mcp.pullUp(BUTTON8_PIN, HIGH);
 }
 
+// ---------------------------------------------------------------------------------------
+
 void CtrlBoard::handleLoop() {
+
+  if (Serial.available()) {
+    char val = Serial.read();
+    
+    if (val == 'u') { // up
+    } else if (val == 'd') { // down
+    } else if (val == 'l') { // left
+      voiceNumber--;
+      if (voiceNumber<0) 
+        voiceNumber = 4;
+      updateVoiceModel();
+    } else if (val == 'r') { // right
+      voiceNumber++;
+      if (voiceNumber>4) 
+        voiceNumber = 0;
+      updateVoiceModel();
+    } else if (val == 'e') {      
+    }
+  }
+
   if (!mcp.digitalRead(BUTTON1_PIN)) {
     buttonPressed_f1();
     delay(250);
@@ -57,34 +83,86 @@ void CtrlBoard::handleLoop() {
   }
 }
 
+// ---------------------------------------------------------------------------------------
+
 void CtrlBoard::buttonPressed_f1() {
     Serial.println("Button F1 pressed");
 }
+
+// ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f2() {
     Serial.println("Button F2 pressed");    
 }
 
+// ---------------------------------------------------------------------------------------
+
 void CtrlBoard::buttonPressed_f3() {
     Serial.println("Button F3 pressed");        
 }
+
+// ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f4() {
     Serial.println("Button F4 pressed");
 }
 
+// ---------------------------------------------------------------------------------------
+
 void CtrlBoard::buttonPressed_f5() {
     Serial.println("Button F5 pressed");
 }
+
+// ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f6() {
     Serial.println("Button F6 pressed");    
 }
 
+// ---------------------------------------------------------------------------------------
+
 void CtrlBoard::buttonPressed_f7() {
-    Serial.println("Button F7 pressed");
+    if (voiceNumber > 0)
+      voiceNumber--;
+    else
+      voiceNumber=0;
+
+  Serial.print("Button F7 pressed. Voice Number: ");
+  Serial.println(voiceNumber);
+
+  updateVoiceModel();
+
+  Serial1.begin(500000);
+  Serial1.write('r');
+  Serial1.write(voiceNumber);
+  Serial1.end();
 }
 
+// ---------------------------------------------------------------------------------------
+
 void CtrlBoard::buttonPressed_f8() {
-    Serial.println("Button F8 pressed");    
+  voiceNumber++;
+  if (voiceNumber > 4)
+    voiceNumber=4;
+
+  Serial.print("Button F8 pressed. Voice Number: ");
+  Serial.println(voiceNumber);
+
+  updateVoiceModel();
+  Serial1.begin(500000);
+
+  Serial1.write('r');
+  Serial1.write(voiceNumber);
+  Serial1.end();
 }
+
+// ---------------------------------------------------------------------------------------
+
+void CtrlBoard::updateVoiceModel() {
+  delete this->voiceMode->getVoiceModel();
+  VoiceModel *voiceModel = new VoiceModel(patchNames[voiceNumber]);  
+  voiceMode->updateVoiceModel(voiceModel);
+  voiceMode->draw();
+}
+
+// ---------------------------------------------------------------------------------------

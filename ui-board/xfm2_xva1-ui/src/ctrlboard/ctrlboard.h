@@ -2,6 +2,8 @@
 #define CtrlBoard_H
 
 #include <Adafruit_MCP23017.h>
+#include "../ui/view/voicemode/voicemode.h"
+#include "../ui/model/voicemodel.h"
 
 #define BUTTON1_PIN 8
 #define BUTTON2_PIN 9
@@ -14,7 +16,7 @@
 
 class CtrlBoard {
 public:
-    void setup();
+    void setup(VoiceMode *voiceMode);
     void handleLoop();
 private:
     void buttonPressed_f1();
@@ -27,7 +29,11 @@ private:
     void buttonPressed_f8();
     void buttonPressed_f9();
 
+    void updateVoiceModel();
+
     Adafruit_MCP23017 mcp;
+    int voiceNumber = 0;
+    VoiceMode *voiceMode;
 };
 
 #endif

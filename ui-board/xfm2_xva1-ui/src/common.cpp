@@ -1,6 +1,10 @@
 #include <Arduino.h>
 #include "common.h"
 
+const char *patchNames[5] = {"GrandPiano","Arianne","Dyno E.Pno","BrasChoral","Nasty Saw"};
+
+// ---------------------------------------------------------------------------------------
+
 #ifdef __arm__
 // should use uinstd.h to define sbrk but Due causes a conflict
 extern "C" char* sbrk(int incr);
@@ -19,7 +23,11 @@ int freeMemory() {
 #endif  // __arm__
 }
 
+// ---------------------------------------------------------------------------------------
+
 void printFreeMemory() {
     Serial.print("Free memory: ");
     Serial.println(freeMemory());
 }
+
+// ---------------------------------------------------------------------------------------

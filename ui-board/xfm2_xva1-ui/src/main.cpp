@@ -13,52 +13,28 @@
 #endif
 
 CtrlBoard *ctrlboard;
-VoiceMode *voiceMode;
-VoiceModel *voiceModel = nullptr;
-const char *patchNames[5] = {"GrandPiano","Arianne","Dyno E.Pno","BrasChoral","Nasty Saw"};
-int i = 0;
 
-// =======================================================================================
+// ---------------------------------------------------------------------------------------
 
 void setup(void) {
+  VoiceModel *voiceModel = nullptr;
+
   Serial.begin(9600);
   ctrlboard = new CtrlBoard();
-  ctrlboard->setup();
   setupUi();
-  voiceMode = new VoiceMode(nullptr);
-  voiceModel = new VoiceModel(patchNames[i]);  
+  VoiceMode *voiceMode = new VoiceMode(nullptr);
+  voiceModel = new VoiceModel(patchNames[0]);  // adapt the index zero later
   voiceMode->updateVoiceModel(voiceModel);
-  voiceMode->draw();
+  ctrlboard->setup(voiceMode);
+  voiceMode->draw(); 
 }
 
 // =======================================================================================
-
-void updateVoiceModel() {
-  delete voiceModel;
-  voiceModel = new VoiceModel(patchNames[i]);  
-  voiceMode->updateVoiceModel(voiceModel);
-  voiceMode->draw();
-}
+// Loop
+// =======================================================================================
 
 void loop(void) {
-  if (Serial.available()) {
-    char val = Serial.read();
-    
-    if (val == 'u') { // up
-    } else if (val == 'd') { // down
-    } else if (val == 'l') { // left
-      i--;
-      if (i<0) 
-        i = 4;
-      updateVoiceModel();
-    } else if (val == 'r') { // right
-      i++;
-      if (i>4) 
-        i = 0;
-      updateVoiceModel();
-    } else if (val == 'e') {      
-    }
-  }
+
   ctrlboard->handleLoop();
 
   //printFreeMemory();
