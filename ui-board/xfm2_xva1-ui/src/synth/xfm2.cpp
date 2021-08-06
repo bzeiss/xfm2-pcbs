@@ -10,9 +10,9 @@ Xfm2::Xfm2(HardwareSerial *serial) {
     delay(1000); // safety delay for serial to get ready 
 
     this->activateFirstUnit();
-    this->printLastCommandResult();
+    //this->printLastCommandResult();
     this->loadProgram(0);
-    this->printLastCommandResult();
+    //this->printLastCommandResult();
 }
 
 // ---------------------------------------------------------------------------------------
