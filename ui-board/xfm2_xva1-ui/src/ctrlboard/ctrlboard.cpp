@@ -125,19 +125,24 @@ void CtrlBoard::buttonPressed_f3() {
 // ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f4() {
-    Serial.println("Button F4 pressed");
+    Serial.println("Button F4 pressed: activate first unit");
+    xfm2->activateFirstUnit();
+    xfm2->printLastCommandResult();
 }
 
 // ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f5() {
-    Serial.println("Button F5 pressed");
+    Serial.println("Button F5 pressed: loading program 4");
+    xfm2->loadProgram(4);
+    xfm2->printLastCommandResult();
 }
 
 // ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f6() {
-    Serial.println("Button F6 pressed");    
+    Serial.println("Button F6 pressed. Reading all parameters");
+    xfm2->updateXfm2SynthModel();
 }
 
 // ---------------------------------------------------------------------------------------

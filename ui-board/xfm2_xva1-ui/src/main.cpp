@@ -19,7 +19,7 @@ CtrlBoard *ctrlboard;
 void setup(void) {
   VoiceModel *voiceModel = nullptr;
 
-  Serial.begin(9600);
+  Serial.begin(500000);
 
   setupUi();
   VoiceMode *voiceMode = new VoiceMode(nullptr);
