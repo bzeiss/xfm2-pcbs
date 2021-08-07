@@ -4,7 +4,8 @@
 #include <Adafruit_MCP23017.h>
 #include "../ui/view/voicemode/voicemode.h"
 #include "../ui/model/voicemodel.h"
-#include "../synth/xfm2.h"
+#include "../synth/xfm2_hw.h"
+#include "../synth/xfm2_program.h"
 
 #define BUTTON1_PIN 8
 #define BUTTON2_PIN 9
@@ -40,7 +41,9 @@ private:
     Adafruit_MCP23017 mcp;
     int voiceNumber = 0;
     VoiceMode *voiceMode = nullptr;
-    Xfm2 *xfm2 = nullptr;
+    Xfm2Hw *xfm2Hw = nullptr;
+    Xfm2Program *xfm2Unit1 = nullptr;
+    Xfm2Program *xfm2Unit2 = nullptr;
 };
 
 #endif

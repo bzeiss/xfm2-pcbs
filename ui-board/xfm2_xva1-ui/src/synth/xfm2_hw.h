@@ -1,13 +1,12 @@
-#ifndef XFM2_H
-#define XFM2_H
+#ifndef XFM2HW_H
+#define XFM2HW_H
 
 #include <Arduino.h>
-#include "xfm2_program.h"
 
-class Xfm2 {
+class Xfm2Hw {
 public:
-    Xfm2(HardwareSerial *serial);
-    ~Xfm2();
+    Xfm2Hw(HardwareSerial *serial);
+    ~Xfm2Hw();
     void updateXfm2SynthModel();
     int loadProgram(byte programNumber);
     int writeProgram(byte programNumber);
@@ -19,13 +18,9 @@ public:
     int setFirstUnitMidiChannel(byte channelNumber);
     int setSecondUnitMidiChannel(byte channelNumber);
     int setLayerMode(bool enabled);
-    Xfm2Program *getSynthModelUnit1();
-    Xfm2Program *getSynthModelUnit2();
     void printLastCommandResult();
 private:
     HardwareSerial *serial;
-    Xfm2Program *unit1;
-    Xfm2Program *unit2;
     byte lastResult;
     byte readResultByte();
     void serialDrain();

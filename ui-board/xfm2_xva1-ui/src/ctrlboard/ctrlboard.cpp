@@ -1,5 +1,6 @@
 #include "ctrlboard.h"
 #include "../common.h"
+#include "../synth/xfm2_hw.h"
 #include <Arduino.h>
 
 // ---------------------------------------------------------------------------------------
@@ -7,7 +8,9 @@
 CtrlBoard::CtrlBoard() {
   mcp.begin();
   initializeFunctionButtons();
-  this->xfm2 = new Xfm2(&Serial1);
+  this->xfm2Hw = new Xfm2Hw(&Serial1);
+  this->xfm2Unit1 = new Xfm2Program(this->xfm2Hw);
+  this->xfm2Unit2 = new Xfm2Program(this->xfm2Hw);
 }
 
 // ---------------------------------------------------------------------------------------
@@ -107,13 +110,17 @@ void CtrlBoard::handleFunctioButtons() {
 // ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f1() {
-    Serial.println("Button F1 pressed");
+    Serial.println("Button F1 pressed: Pitch EG Delay");
+    int pitchEgDelay = xfm2Unit1->pitchEg->getDelay();
+    Serial.println(pitchEgDelay);
 }
 
 // ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f2() {
-    Serial.println("Button F2 pressed");    
+    Serial.println("Button F2 pressed: Pitch EG L0");
+    int l0 = xfm2Unit1->pitchEg->getL0();
+    Serial.println(l0);
 }
 
 // ---------------------------------------------------------------------------------------
@@ -126,23 +133,23 @@ void CtrlBoard::buttonPressed_f3() {
 
 void CtrlBoard::buttonPressed_f4() {
     Serial.println("Button F4 pressed: activate first unit");
-    xfm2->activateFirstUnit();
-    xfm2->printLastCommandResult();
+    xfm2Hw->activateFirstUnit();
+    xfm2Hw->printLastCommandResult();
 }
 
 // ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f5() {
     Serial.println("Button F5 pressed: loading program 4");
-    xfm2->loadProgram(4);
-    xfm2->printLastCommandResult();
+    xfm2Hw->loadProgram(4);
+    xfm2Hw->printLastCommandResult();
 }
 
 // ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f6() {
     Serial.println("Button F6 pressed. Reading all parameters");
-    xfm2->updateXfm2SynthModel();
+    xfm2Hw->updateXfm2SynthModel();
 }
 
 // ---------------------------------------------------------------------------------------
@@ -158,7 +165,7 @@ void CtrlBoard::buttonPressed_f7() {
 
   updateVoiceModel();
 
-  xfm2->loadProgram(voiceNumber);
+  xfm2Hw->loadProgram(voiceNumber);
 }
 
 // ---------------------------------------------------------------------------------------
@@ -174,7 +181,7 @@ void CtrlBoard::buttonPressed_f8() {
   updateVoiceModel();
   Serial1.begin(500000);
 
-  xfm2->loadProgram(voiceNumber);
+  xfm2Hw->loadProgram(voiceNumber);
 }
 
 // ---------------------------------------------------------------------------------------

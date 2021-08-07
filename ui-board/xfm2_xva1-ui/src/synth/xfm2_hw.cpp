@@ -1,10 +1,9 @@
-#include "xfm2.h"
 #include <Arduino.h>
-#include "XFM2_params.h"
+#include "xfm2_hw.h"
 
 // ---------------------------------------------------------------------------------------
 
-Xfm2::Xfm2(HardwareSerial *serial) {
+Xfm2Hw::Xfm2Hw(HardwareSerial *serial) {
     this->serial = serial;
     this->serial->begin(500000);
 
@@ -16,13 +15,13 @@ Xfm2::Xfm2(HardwareSerial *serial) {
 
 // ---------------------------------------------------------------------------------------
 
-Xfm2::~Xfm2() {
+Xfm2Hw::~Xfm2Hw() {
     this->serial->end();
 }
 
 // ---------------------------------------------------------------------------------------
 
-void Xfm2::updateXfm2SynthModel() {
+void Xfm2Hw::updateXfm2SynthModel() {
 // parameter 'd' does not seem to work properly with the arduino. The serial buffer has a size of 64 byte and with baud rate 500000, the arduino
 // does not empty this buffer quick enough in order for the buffer to be cleared before more bytes arrive. Thus, we need to query each parameter
 // through a loop. If you have a solution, let me know, I'd rather get all parameters via a single command...
@@ -37,7 +36,7 @@ void Xfm2::updateXfm2SynthModel() {
 
 // ---------------------------------------------------------------------------------------
 
-int Xfm2::loadProgram(byte programNumber) {
+int Xfm2Hw::loadProgram(byte programNumber) {
   this->lastResult = -1;
 
   if (programNumber < 0)
@@ -54,7 +53,7 @@ int Xfm2::loadProgram(byte programNumber) {
 
 // ---------------------------------------------------------------------------------------
 
-int Xfm2::writeProgram(byte programNumber) {
+int Xfm2Hw::writeProgram(byte programNumber) {
   this->lastResult = -1;
 
   if (programNumber < 0)
@@ -71,7 +70,7 @@ int Xfm2::writeProgram(byte programNumber) {
 
 // ---------------------------------------------------------------------------------------
 
-void Xfm2::setParameter(int parameterNumber, byte value) {
+void Xfm2Hw::setParameter(int parameterNumber, byte value) {
   if (parameterNumber < 0)
     return;
 
@@ -90,7 +89,7 @@ void Xfm2::setParameter(int parameterNumber, byte value) {
 
 // ---------------------------------------------------------------------------------------
 
-byte Xfm2::getParameter(int parameterNumber) {
+byte Xfm2Hw::getParameter(int parameterNumber) {
   this->lastResult = -1;
 
   if (parameterNumber < 0)
@@ -110,7 +109,7 @@ byte Xfm2::getParameter(int parameterNumber) {
 
 // ---------------------------------------------------------------------------------------
 
-int Xfm2::activateFirstUnit() {
+int Xfm2Hw::activateFirstUnit() {
   this->lastResult = -1;
   this->serial->write('1');
   this->lastResult = readResultByte();
@@ -119,7 +118,7 @@ int Xfm2::activateFirstUnit() {
 
 // ---------------------------------------------------------------------------------------
 
-int Xfm2::activateSecondUnit() {
+int Xfm2Hw::activateSecondUnit() {
   this->lastResult = -1;
   this->serial->write('2');
   this->lastResult = readResultByte();
@@ -129,7 +128,7 @@ int Xfm2::activateSecondUnit() {
 
 // ---------------------------------------------------------------------------------------
 
-void Xfm2::initializeEeprom() {
+void Xfm2Hw::initializeEeprom() {
   this->serial->write('$');
   this->serial->flush();
   this->serialDrain();
@@ -137,7 +136,7 @@ void Xfm2::initializeEeprom() {
 
 // ---------------------------------------------------------------------------------------
 
-int Xfm2::setFirstUnitMidiChannel(byte channelNumber) {
+int Xfm2Hw::setFirstUnitMidiChannel(byte channelNumber) {
   this->serial->write('*');
   this->serial->write(10);
   this->serial->write(channelNumber);
@@ -147,7 +146,7 @@ int Xfm2::setFirstUnitMidiChannel(byte channelNumber) {
 
 // ---------------------------------------------------------------------------------------
 
-int Xfm2::setSecondUnitMidiChannel(byte channelNumber) {
+int Xfm2Hw::setSecondUnitMidiChannel(byte channelNumber) {
   this->serial->write('*');
   this->serial->write(11);
   this->serial->write(channelNumber);
@@ -157,7 +156,7 @@ int Xfm2::setSecondUnitMidiChannel(byte channelNumber) {
 
 // ---------------------------------------------------------------------------------------
 
-int Xfm2::setLayerMode(bool enabled) {
+int Xfm2Hw::setLayerMode(bool enabled) {
   this->lastResult = -1;
 
   this->serial->write('*');
@@ -174,26 +173,14 @@ int Xfm2::setLayerMode(bool enabled) {
 
 // ---------------------------------------------------------------------------------------
 
-Xfm2Program *Xfm2::getSynthModelUnit1() {
-  return this->unit1;
-}
-
-// ---------------------------------------------------------------------------------------
-
-Xfm2Program *Xfm2::getSynthModelUnit2() {
-  return this->unit2;
-}
-
-// ---------------------------------------------------------------------------------------
-
-void Xfm2::printLastCommandResult() {
+void Xfm2Hw::printLastCommandResult() {
   Serial.print("Last result: ");
   Serial.println(this->lastResult);
 }
 
 // ---------------------------------------------------------------------------------------
 
-void Xfm2::serialDrain() {
+void Xfm2Hw::serialDrain() {
   while(this->serial->available() > 0) {
     this->serial->read();
   }
@@ -201,7 +188,7 @@ void Xfm2::serialDrain() {
 
 // ---------------------------------------------------------------------------------------
 
-byte Xfm2::readResultByte() {
+byte Xfm2Hw::readResultByte() {
   while (this->serial->available() <= 0) {
   // wait for buffer to fill
   }

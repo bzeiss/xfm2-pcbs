@@ -19,3 +19,9 @@ void Xfm2Operator::setSynthParameter(byte parameter) {
 }
 
 // ---------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------
+
+void Xfm2Operator::setOperatorId(byte operatorId) {
+    this->operatorId = operatorId;
+}
