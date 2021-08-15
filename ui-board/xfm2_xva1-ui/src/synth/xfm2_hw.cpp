@@ -4,20 +4,20 @@
 // ---------------------------------------------------------------------------------------
 
 Xfm2Hw::Xfm2Hw(HardwareSerial *serial) {
-    this->serial = serial;
-    this->serial->begin(500000);
-    this->serial->setTimeout(500);
+  this->serial = serial;
+  this->serial->begin(500000);
+  this->serial->setTimeout(500);
 
-    // this->activateFirstUnit();
-    // this->printLastCommandResult();
-    // this->loadProgram(0);
-    // this->printLastCommandResult();
+  // this->activateFirstUnit();
+  // this->printLastCommandResult();
+  // this->loadProgram(0);
+  // this->printLastCommandResult();
 }
 
 // ---------------------------------------------------------------------------------------
 
 Xfm2Hw::~Xfm2Hw() {
-    this->serial->end();
+  this->serial->end();
 }
 
 // ---------------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ void Xfm2Hw::updateXfm2SynthModel() {
 // parameter 'd' does not seem to work properly with the arduino. The serial buffer has a size of 64 byte and with baud rate 500000, the arduino
 // does not empty this buffer quick enough in order for the buffer to be cleared before more bytes arrive. Thus, we need to query each parameter
 // through a loop. If you have a solution, let me know, I'd rather get all parameters via a single command...
-  for (int i=1; i <= this->maxParameters; i++) {
+  for (int i = 1; i <= this->maxParameters; i++) {
     byte result = this->getParameter(i);
     Serial.print("Parameter ");
     Serial.print(i);
@@ -44,7 +44,7 @@ int Xfm2Hw::loadProgram(byte programNumber) {
     return this->lastResult;
   if (programNumber > 127)
     return this->lastResult;
-  
+
   this->serial->write('r');
   this->serial->write(programNumber);
   this->lastResult = readResultByte();
@@ -76,14 +76,14 @@ void Xfm2Hw::setParameter(int parameterNumber, byte value) {
     return;
 
   this->serial->write('s');
-  
+
   if (parameterNumber > 254) {
     this->serial->write(255);
-    this->serial->write(parameterNumber-255);
+    this->serial->write(parameterNumber - 255);
   } else {
     this->serial->write(parameterNumber);
   }
-  this->serial->write(value); 
+  this->serial->write(value);
   this->serial->flush();
   this->serialDrain();
 }
@@ -99,7 +99,7 @@ byte Xfm2Hw::getParameter(int parameterNumber) {
   this->serial->write('g');
   if (parameterNumber > 254) {
     this->serial->write(255);
-    this->serial->write(parameterNumber-255);
+    this->serial->write(parameterNumber - 255);
   } else {
     this->serial->write(parameterNumber);
   }
@@ -168,7 +168,7 @@ int Xfm2Hw::setLayerMode(bool enabled) {
     this->serial->write(0);
   }
   this->lastResult = readResultByte();
-  
+
   return this->lastResult;
 }
 
@@ -182,7 +182,7 @@ void Xfm2Hw::printLastCommandResult() const {
 // ---------------------------------------------------------------------------------------
 
 void Xfm2Hw::serialDrain() {
-  while(this->serial->available() > 0) {
+  while (this->serial->available() > 0) {
     this->serial->read();
   }
 }
@@ -192,12 +192,12 @@ void Xfm2Hw::serialDrain() {
 byte Xfm2Hw::readResultByte() {
   // this is blocking code. need to do this differently.
   while (this->serial->available() <= 0) {
-  // wait for buffer to fill
+    // wait for buffer to fill
   }
   if (this->serial->available() > 0) {
     byte result = this->serial->read();
     return result;
-  } 
+  }
   return -1;
 }
 

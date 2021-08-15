@@ -6,14 +6,14 @@
 
 class VoiceDetails : UiElement {
 public:
-    VoiceDetails(VoiceModel *voiceModel);
-    virtual ~VoiceDetails();
-    void draw() override;
-    void updateVoiceModel(VoiceModel *voiceModel);
+  explicit VoiceDetails(VoiceModel *voiceModel);
+  virtual ~VoiceDetails();
+  void draw() override;
+  void updateVoiceModel(VoiceModel *voiceModel);
 private:
-    VoiceModel *voiceModel;
-    void drawVoiceHead();
-    void drawPatchName();    
+  VoiceModel *voiceModel;
+  static void drawVoiceHead();
+  void drawPatchName();
 };
 
 #endif

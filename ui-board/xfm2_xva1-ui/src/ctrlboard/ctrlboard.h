@@ -18,31 +18,29 @@
 
 class CtrlBoard {
 public:
-    CtrlBoard();
-    ~CtrlBoard();
-    void setVoiceMode(VoiceMode *voiceModeParam);
-    void handleLoop();
+  CtrlBoard();
+  ~CtrlBoard();
+  void setVoiceMode(VoiceMode *voiceModeParam);
+  void handleLoop();
 private:
-    void initializeFunctionButtons();
-    void handleFunctioButtons();
+  void initializeFunctionButtons();
+  void handleFunctioButtons();
+  void buttonPressed_f1();
+  void buttonPressed_f2();
+  void buttonPressed_f3();
+  void buttonPressed_f4();
+  void buttonPressed_f5();
+  void buttonPressed_f6();
+  void buttonPressed_f7();
+  void buttonPressed_f8();
+  void updateVoiceModel();
 
-    void buttonPressed_f1();
-    void buttonPressed_f2();
-    void buttonPressed_f3();
-    void buttonPressed_f4();
-    void buttonPressed_f5();
-    void buttonPressed_f6();
-    void buttonPressed_f7();
-    void buttonPressed_f8();
-
-    void updateVoiceModel();
-
-    Adafruit_MCP23017 mcp{};
-    int voiceNumber = 0;
-    VoiceMode *voiceMode = nullptr;
-    Xfm2Hw *xfm2Hw = nullptr;
-    Xfm2Program *xfm2Unit1 = nullptr;
-    Xfm2Program *xfm2Unit2 = nullptr;
+  Adafruit_MCP23017 mcp{};
+  int voiceNumber = 0;
+  VoiceMode *voiceMode = nullptr;
+  Xfm2Hw *xfm2Hw = nullptr;
+  Xfm2Program *xfm2Unit1 = nullptr;
+  Xfm2Program *xfm2Unit2 = nullptr;
 };
 
 #endif

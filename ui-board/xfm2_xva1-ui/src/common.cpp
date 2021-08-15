@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "common.h"
 
-const char *patchNames[5] = {"GrandPiano","Arianne","Dyno E.Pno","BrasChoral","Nasty Saw"};
+const char *patchNames[5] = {"GrandPiano", "Arianne", "Dyno E.Pno", "BrasChoral", "Nasty Saw"};
 
 // ---------------------------------------------------------------------------------------
 
@@ -28,8 +28,8 @@ int freeMemory() {
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "OCUnusedGlobalDeclarationInspection"
 void printFreeMemory() {
-    Serial.print("Free memory: ");
-    Serial.println(freeMemory());
+  Serial.print("Free memory: ");
+  Serial.println(freeMemory());
 }
 #pragma clang diagnostic pop
 

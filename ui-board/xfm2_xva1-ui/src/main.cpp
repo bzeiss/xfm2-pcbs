@@ -17,7 +17,7 @@ void setup(void) {
   voiceMode->updateVoiceModel(voiceModel);
   ctrlboard = new CtrlBoard();
   ctrlboard->setVoiceMode(voiceMode);
-  voiceMode->draw(); 
+  voiceMode->draw();
 }
 
 // =======================================================================================

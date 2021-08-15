@@ -8,15 +8,15 @@
 
 class VoiceMode : public UiElement {
 public:
-    VoiceMode(VoiceModel *voiceModel);
-    virtual ~VoiceMode();
-    void draw() override;
-    void updateVoiceModel(VoiceModel *voiceModel);
-    VoiceModel *getVoiceModel();
+  explicit VoiceMode(VoiceModel *voiceModel);
+  virtual ~VoiceMode();
+  void draw() override;
+  void updateVoiceModel(VoiceModel *voiceModelParam);
+  VoiceModel *getVoiceModel();
 private:
-    FunctionKeysUI *functionKeyUi;
-    VoiceDetails *voiceDetails;
-    VoiceModel *voiceModel = nullptr;
+  FunctionKeysUI *functionKeyUi;
+  VoiceDetails *voiceDetails;
+  VoiceModel *voiceModel = nullptr;
 };
 
 #endif

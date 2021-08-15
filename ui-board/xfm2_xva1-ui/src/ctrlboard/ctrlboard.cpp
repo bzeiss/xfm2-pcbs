@@ -49,25 +49,24 @@ void CtrlBoard::handleLoop() {
   if (Serial.available()) {
     char val = Serial.read(); // NOLINT(cppcoreguidelines-narrowing-conversions)
 
-    switch(val) {
-        case 'u': // up
-        case 'd': // down
-        case 'e': // enter
-            break;
-        case 'l': // left
-            voiceNumber--;
-            if (voiceNumber<0)
-                voiceNumber = 4;
-            updateVoiceModel();
-            break;
-        case 'r': // right
-            voiceNumber++;
-            if (voiceNumber>4)
-                voiceNumber = 0;
-            updateVoiceModel();
-            break;
-        default:
-            break;
+    switch (val) {
+    case 'u': // up
+    case 'd': // down
+    case 'e': // enter
+      break;
+    case 'l': // left
+      voiceNumber--;
+      if (voiceNumber < 0)
+        voiceNumber = 4;
+      updateVoiceModel();
+      break;
+    case 'r': // right
+      voiceNumber++;
+      if (voiceNumber > 4)
+        voiceNumber = 0;
+      updateVoiceModel();
+      break;
+    default:break;
     }
   }
   handleFunctioButtons();
@@ -113,55 +112,55 @@ void CtrlBoard::handleFunctioButtons() {
 // ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f1() {
-    Serial.println("Button F1 pressed: Pitch EG Delay");
-    int pitchEgDelay = xfm2Unit1->pitchEg->getDelay();
-    Serial.println(pitchEgDelay);
+  Serial.println("Button F1 pressed: Pitch EG Delay");
+  int pitchEgDelay = xfm2Unit1->pitchEg->getDelay();
+  Serial.println(pitchEgDelay);
 }
 
 // ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f2() {
-    Serial.println("Button F2 pressed: Pitch EG L0");
-    int l0 = xfm2Unit1->pitchEg->getL0();
-    Serial.println(l0);
+  Serial.println("Button F2 pressed: Pitch EG L0");
+  int l0 = xfm2Unit1->pitchEg->getL0();
+  Serial.println(l0);
 }
 
 // ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f3() { // NOLINT(readability-convert-member-functions-to-static)
-    Serial.println("Button F3 pressed");        
+  Serial.println("Button F3 pressed");
 }
 
 // ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f4() {
-    Serial.println("Button F4 pressed: activate first unit");
-    xfm2Hw->activateFirstUnit();
-    xfm2Hw->printLastCommandResult();
+  Serial.println("Button F4 pressed: activate first unit");
+  xfm2Hw->activateFirstUnit();
+  xfm2Hw->printLastCommandResult();
 }
 
 // ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f5() {
-    Serial.println("Button F5 pressed: loading program 4");
-    xfm2Hw->loadProgram(4);
-    xfm2Hw->printLastCommandResult();
+  Serial.println("Button F5 pressed: loading program 4");
+  xfm2Hw->loadProgram(4);
+  xfm2Hw->printLastCommandResult();
 }
 
 // ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f6() {
-    Serial.println("Button F6 pressed. Reading all parameters");
-    xfm2Hw->updateXfm2SynthModel();
+  Serial.println("Button F6 pressed. Reading all parameters");
+  xfm2Hw->updateXfm2SynthModel();
 }
 
 // ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f7() {
-    if (voiceNumber > 0)
-      voiceNumber--;
-    else
-      voiceNumber=0;
+  if (voiceNumber > 0)
+    voiceNumber--;
+  else
+    voiceNumber = 0;
 
   Serial.print("Button F7 pressed. Voice Number: ");
   Serial.println(voiceNumber);
@@ -176,7 +175,7 @@ void CtrlBoard::buttonPressed_f7() {
 void CtrlBoard::buttonPressed_f8() {
   voiceNumber++;
   if (voiceNumber > 4)
-    voiceNumber=4;
+    voiceNumber = 4;
 
   Serial.print("Button F8 pressed. Voice Number: ");
   Serial.println(voiceNumber);

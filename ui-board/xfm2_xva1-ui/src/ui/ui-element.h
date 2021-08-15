@@ -5,12 +5,12 @@
 
 class UiElement {
 public:
-    UiElement();
-    ~UiElement();
-    virtual void draw() = 0;
+  UiElement();
+  ~UiElement();
+  virtual void draw() = 0;
 protected:
-    void initDraw();
-    void finishDraw();
+  void initDraw();
+  void finishDraw();
 };
 
 #endif

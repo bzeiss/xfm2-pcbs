@@ -7,14 +7,15 @@
 
 class Xfm2Program {
 public:
-    Xfm2Program(); // don't use
-    explicit Xfm2Program(Xfm2Hw *xfm2Hw);
-    ~Xfm2Program();
+  Xfm2Program(); // don't use
+  explicit Xfm2Program(Xfm2Hw *xfm2Hw);
 
-    Xfm2PitchEnvelopeGenerator *pitchEg{};
+  ~Xfm2Program();
+
+  Xfm2PitchEnvelopeGenerator *pitchEg{};
 private:
-    Xfm2Hw *xfm2Hw{};
-    Xfm2Operator *operators{};
+  Xfm2Hw *xfm2Hw{};
+  Xfm2Operator *operators{};
 };
 
 #endif
