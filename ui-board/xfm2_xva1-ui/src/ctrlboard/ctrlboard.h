@@ -20,7 +20,7 @@ class CtrlBoard {
 public:
     CtrlBoard();
     ~CtrlBoard();
-    void setVoiceMode(VoiceMode *voiceMode);
+    void setVoiceMode(VoiceMode *voiceModeParam);
     void handleLoop();
 private:
     void initializeFunctionButtons();
@@ -34,11 +34,10 @@ private:
     void buttonPressed_f6();
     void buttonPressed_f7();
     void buttonPressed_f8();
-    void buttonPressed_f9();
 
     void updateVoiceModel();
 
-    Adafruit_MCP23017 mcp;
+    Adafruit_MCP23017 mcp{};
     int voiceNumber = 0;
     VoiceMode *voiceMode = nullptr;
     Xfm2Hw *xfm2Hw = nullptr;

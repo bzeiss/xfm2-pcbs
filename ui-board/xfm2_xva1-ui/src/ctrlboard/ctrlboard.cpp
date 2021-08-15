@@ -1,6 +1,5 @@
 #include "ctrlboard.h"
 #include "../common.h"
-#include "../synth/xfm2_hw.h"
 #include <Arduino.h>
 
 // ---------------------------------------------------------------------------------------
@@ -36,35 +35,39 @@ void CtrlBoard::initializeFunctionButtons() {
 
 // ---------------------------------------------------------------------------------------
 
-CtrlBoard::~CtrlBoard() {
-}
+CtrlBoard::~CtrlBoard() = default;
 
 // ---------------------------------------------------------------------------------------
 
-void CtrlBoard::setVoiceMode(VoiceMode *voiceMode) {
-  this->voiceMode = voiceMode;
+void CtrlBoard::setVoiceMode(VoiceMode *voiceModeParam) {
+  this->voiceMode = voiceModeParam;
 }
 
 // ---------------------------------------------------------------------------------------
 
 void CtrlBoard::handleLoop() {
-
   if (Serial.available()) {
-    char val = Serial.read();
-    
-    if (val == 'u') { // up
-    } else if (val == 'd') { // down
-    } else if (val == 'l') { // left
-      voiceNumber--;
-      if (voiceNumber<0) 
-        voiceNumber = 4;
-      updateVoiceModel();
-    } else if (val == 'r') { // right
-      voiceNumber++;
-      if (voiceNumber>4) 
-        voiceNumber = 0;
-      updateVoiceModel();
-    } else if (val == 'e') {      
+    char val = Serial.read(); // NOLINT(cppcoreguidelines-narrowing-conversions)
+
+    switch(val) {
+        case 'u': // up
+        case 'd': // down
+        case 'e': // enter
+            break;
+        case 'l': // left
+            voiceNumber--;
+            if (voiceNumber<0)
+                voiceNumber = 4;
+            updateVoiceModel();
+            break;
+        case 'r': // right
+            voiceNumber++;
+            if (voiceNumber>4)
+                voiceNumber = 0;
+            updateVoiceModel();
+            break;
+        default:
+            break;
     }
   }
   handleFunctioButtons();
@@ -125,7 +128,7 @@ void CtrlBoard::buttonPressed_f2() {
 
 // ---------------------------------------------------------------------------------------
 
-void CtrlBoard::buttonPressed_f3() {
+void CtrlBoard::buttonPressed_f3() { // NOLINT(readability-convert-member-functions-to-static)
     Serial.println("Button F3 pressed");        
 }
 
@@ -188,7 +191,7 @@ void CtrlBoard::buttonPressed_f8() {
 
 void CtrlBoard::updateVoiceModel() {
   delete this->voiceMode->getVoiceModel();
-  VoiceModel *voiceModel = new VoiceModel(patchNames[voiceNumber]);  
+  auto *voiceModel = new VoiceModel(patchNames[voiceNumber]);
   voiceMode->updateVoiceModel(voiceModel);
   voiceMode->draw();
 }

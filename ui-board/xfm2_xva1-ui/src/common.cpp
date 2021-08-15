@@ -9,7 +9,7 @@ const char *patchNames[5] = {"GrandPiano","Arianne","Dyno E.Pno","BrasChoral","N
 // should use uinstd.h to define sbrk but Due causes a conflict
 extern "C" char* sbrk(int incr);
 #else  // __ARM__
-extern char *__brkval;
+extern char *__brkval; // NOLINT(bugprone-reserved-identifier)
 #endif  // __arm__
 
 int freeMemory() {
@@ -17,7 +17,7 @@ int freeMemory() {
 #ifdef __arm__
   return &top - reinterpret_cast<char*>(sbrk(0));
 #elif defined(CORE_TEENSY) || (ARDUINO > 103 && ARDUINO != 151)
-  return &top - __brkval;
+  return &top - __brkval; // NOLINT(cppcoreguidelines-narrowing-conversions)
 #else  // __arm__
   return __brkval ? &top - __brkval : &top - __malloc_heap_start;
 #endif  // __arm__
@@ -25,9 +25,12 @@ int freeMemory() {
 
 // ---------------------------------------------------------------------------------------
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "OCUnusedGlobalDeclarationInspection"
 void printFreeMemory() {
     Serial.print("Free memory: ");
     Serial.println(freeMemory());
 }
+#pragma clang diagnostic pop
 
 // ---------------------------------------------------------------------------------------

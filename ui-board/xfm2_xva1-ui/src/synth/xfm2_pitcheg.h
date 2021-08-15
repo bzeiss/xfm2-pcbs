@@ -7,9 +7,9 @@
 class Xfm2PitchEnvelopeGenerator {
 public:
     Xfm2PitchEnvelopeGenerator(); // don't use
-    Xfm2PitchEnvelopeGenerator(Xfm2Hw *xfm2Hw);
+    explicit Xfm2PitchEnvelopeGenerator(Xfm2Hw *xfm2Hw);
     ~Xfm2PitchEnvelopeGenerator();
-    void setXfm2Hw(Xfm2Hw *xfm2Hw);
+    void setXfm2Hw(Xfm2Hw *xfm2HwParam);
 
     // xfm2 pitch eg parameters getter
     byte getDelay(); // delay time before the EG starts   

@@ -5,7 +5,7 @@
 
 class Xfm2Hw {
 public:
-    Xfm2Hw(HardwareSerial *serial);
+    explicit Xfm2Hw(HardwareSerial *serial);
     ~Xfm2Hw();
     void updateXfm2SynthModel();
     int loadProgram(byte programNumber);
@@ -18,7 +18,7 @@ public:
     int setFirstUnitMidiChannel(byte channelNumber);
     int setSecondUnitMidiChannel(byte channelNumber);
     int setLayerMode(bool enabled);
-    void printLastCommandResult();
+    void printLastCommandResult() const;
 private:
     HardwareSerial *serial;
     byte lastResult;

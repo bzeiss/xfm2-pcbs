@@ -1,11 +1,10 @@
 #include "xfm2_pitcheg.h"
 #include "xfm2_params.h"
 
+
 // ---------------------------------------------------------------------------------------
 
-void Xfm2PitchEnvelopeGenerator::setXfm2Hw(Xfm2Hw *xfm2Hw) {
-    this->xfm2Hw = xfm2Hw;
-}
+Xfm2PitchEnvelopeGenerator::Xfm2PitchEnvelopeGenerator() = default;
 
 // ---------------------------------------------------------------------------------------
 
@@ -15,7 +14,12 @@ Xfm2PitchEnvelopeGenerator::Xfm2PitchEnvelopeGenerator(Xfm2Hw *xfm2Hw) {
 
 // ---------------------------------------------------------------------------------------
 
-Xfm2PitchEnvelopeGenerator::~Xfm2PitchEnvelopeGenerator() {
+Xfm2PitchEnvelopeGenerator::~Xfm2PitchEnvelopeGenerator() = default;
+
+// ---------------------------------------------------------------------------------------
+
+void Xfm2PitchEnvelopeGenerator::setXfm2Hw(Xfm2Hw *xfm2HwParam) {
+    this->xfm2Hw = xfm2HwParam;
 }
 
 // ---------------------------------------------------------------------------------------

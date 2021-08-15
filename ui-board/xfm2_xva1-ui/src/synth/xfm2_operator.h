@@ -8,11 +8,11 @@ public:
     Xfm2Operator();
     ~Xfm2Operator();
     void setSynthParameter(byte parameter);
-    void setOperatorId(byte operatorId);
+    void setOperatorId(byte operatorIdParam);
 private:
     bool carrier = false;
     byte feedbackLevel = 0;
-    Xfm2Operator *outputOperators;
+    Xfm2Operator *outputOperators{};
     byte operatorId=0;
 };
 

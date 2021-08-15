@@ -6,11 +6,12 @@
 Xfm2Hw::Xfm2Hw(HardwareSerial *serial) {
     this->serial = serial;
     this->serial->begin(500000);
+    this->serial->setTimeout(500);
 
-    this->activateFirstUnit();
-    this->printLastCommandResult();
-    this->loadProgram(0);
-    this->printLastCommandResult();
+    // this->activateFirstUnit();
+    // this->printLastCommandResult();
+    // this->loadProgram(0);
+    // this->printLastCommandResult();
 }
 
 // ---------------------------------------------------------------------------------------
@@ -173,7 +174,7 @@ int Xfm2Hw::setLayerMode(bool enabled) {
 
 // ---------------------------------------------------------------------------------------
 
-void Xfm2Hw::printLastCommandResult() {
+void Xfm2Hw::printLastCommandResult() const {
   Serial.print("Last result: ");
   Serial.println(this->lastResult);
 }
@@ -189,6 +190,7 @@ void Xfm2Hw::serialDrain() {
 // ---------------------------------------------------------------------------------------
 
 byte Xfm2Hw::readResultByte() {
+  // this is blocking code. need to do this differently.
   while (this->serial->available() <= 0) {
   // wait for buffer to fill
   }
