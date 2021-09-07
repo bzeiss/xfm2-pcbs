@@ -32,22 +32,18 @@ Please know what you are doing when you intend to use this.
 The BOM is the same as the one futur3soundz, except for the optional pins that you may or may not want to add. For that, you'll need some additional 2.54mm pin headers. Please use sockets at least for the CMOD A7 and possibly also for the DAC.
 
 ## XFM2/XVA Extended PCB
-This PCB is designed to offer most of the functionality that the device offers. The current version v1.1 works mostly, but the A100 connector and associated control voltage functionality don't work properly and maybe requires a update to the design, at least it needs more testing.
-
-So, for the time being, **do not install**:
--  the A100 connector J7
--  the negative voltage regulator U9, its capacitors C8 and C9
--  the opamp MCP6004 U8 with its associated components:
--  audio jack J8, R11, R13, R15, C6, R17
--  audio jack J9, R12, R14, R16, C7, R18
-
+This PCB is designed to offer most of the functionality that the device offers, e.g. control voltage, and it adds some additional functionality like the following:
+- midi out and midi thru. Midi thru is realized through the circuit, not through the fpga as xfm2, unlike xva1, does not have a midi thru pin. Midi out and midi through are going through schmitt-trigger for a clean signal.
+- LEDs for midi in, midi out, led audio, led clip. midi in and midi out leds are realized through the circuit, not through the fpga pins.
+- A100 connector
+- Control voltage that is regulated down to 3.3V for the Cmod A7 via the MCP6004 opamp. The A100 connector must be used in order for the control voltage pins to work.
+- The board uses the H11L1 opto-coupler instead of the 4N36 of the original circuit. In some occasions, I have experienced hanging notes with the 4N36. The signal seems to be more clean through a schmitt-trigger.
 
 ![image](https://user-images.githubusercontent.com/884834/123553683-003fd800-d77d-11eb-9ecb-b90e794388ec.png)
 
 ![image](https://user-images.githubusercontent.com/884834/123553788-8e1bc300-d77d-11eb-8298-3ce04cf766a5.png)
 
 ![20210907_152436](https://user-images.githubusercontent.com/884834/132352785-3404dd0a-1305-42f5-af1c-3488d2239ecf.jpg)
-
 
 Schematic: https://github.com/bzeiss/xfm2-pcbs/blob/main/extended/pdf/schematic.pdf
 
@@ -59,8 +55,8 @@ Schematic: https://github.com/bzeiss/xfm2-pcbs/blob/main/extended/pdf/schematic.
 | 2        | C2, C3                       | 10uF                  | unpolarized ceramic capacitor                                                                                                                                                            |
 | 2        | C4, C5                       | 10uF                  | Polarized tantalum capacitor                                                                                                                                                  |
 | 2        | C6, C7                       | 330p-560p             | Unpolarized ceramic capacitor                                                                                                                                                            |
-| 1        | C8                           | 0.33uF                | Polarized ceramic capacitor                                                                                                                                                   |
-| 1        | C9                           | 0.1uF                 | Polarized ceramic capacitor                                                                                                                                                   |
+| 1        | C8                           | 0.33uF                | Polarized ceramic capacitor (deviation from the schematic, this must be unpolarized!)                                                                                                                                                   |
+| 1        | C9                           | 0.1uF                 | Polarized ceramic capacitor (deviation from the schematic, this must be unpolarized!)                                                                                                                                                   |
 | 1        | D1                           | 1N4148                | 1N4148 Diode                                                                                                                                                                            |
 | 1        | D2                           | LED_MIDI_IN           | Light emitting diode                                                                                                                                                             |
 | 1        | D3                           | LED_MIDI_OUT          | Light emitting diode                                                                                                                                                             |
@@ -95,3 +91,5 @@ Schematic: https://github.com/bzeiss/xfm2-pcbs/blob/main/extended/pdf/schematic.
 | 1        | U8                           | MCP6004               | 1MHz, Low-Power Op Amp, DIP-14/SOIC-14/TSSOP-14                                                                                                                                  |
 | 1        | U9                           | L79L05_SO8            | Negative 100mA -30V Linear Regulator, Fixed Output -5V, SO-8                                                                                                                     |
 
+### Build notes
+- C8 and C9 must be unpolarized ceramic capacitors (unlike shown in the schematic)
