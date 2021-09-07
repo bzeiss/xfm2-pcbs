@@ -32,7 +32,7 @@ Please know what you are doing when you intend to use this.
 The BOM is the same as the one futur3soundz, except for the optional pins that you may or may not want to add. For that, you'll need some additional 2.54mm pin headers. Please use sockets at least for the CMOD A7 and possibly also for the DAC.
 
 ## XFM2/XVA Extended PCB
-This PCB is designed to offer most of the functionality that the device offers. The current version v1.1 works mostly, but the A100 connector and associated control voltage functionality don't work properly and require an updated design.
+This PCB is designed to offer most of the functionality that the device offers. The current version v1.1 works mostly, but the A100 connector and associated control voltage functionality don't work properly and requires a update to the design.
 
 So, for the time being, **do not install**:
 -  the A100 connector J7
