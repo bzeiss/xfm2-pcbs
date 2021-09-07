@@ -48,6 +48,8 @@ This PCB is designed to offer most of the functionality that the device offers, 
 
 Schematic: https://github.com/bzeiss/xfm2-pcbs/blob/main/extended/pdf/schematic.pdf
 
+With the current version, CV jacks haven't been tested fully.
+
 ### BOM
 
 | Quantity | Ref                          | Value                 | Description                                                                                                                                                                      |
