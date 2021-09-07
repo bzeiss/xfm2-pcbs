@@ -32,7 +32,7 @@ Please know what you are doing when you intend to use this.
 The BOM is the same as the one futur3soundz, except for the optional pins that you may or may not want to add. For that, you'll need some additional 2.54mm pin headers. Please use sockets at least for the CMOD A7 and possibly also for the DAC.
 
 ## XFM2/XVA Extended PCB
-This PCB is designed to offer most of the functionality that the device offers. The current version v1.1 works mostly, but the A100 connector and associated control voltage functionality don't work properly and requires a update to the design.
+This PCB is designed to offer most of the functionality that the device offers. The current version v1.1 works mostly, but the A100 connector and associated control voltage functionality don't work properly and maybe requires a update to the design, at least it needs more testing.
 
 So, for the time being, **do not install**:
 -  the A100 connector J7
@@ -59,8 +59,8 @@ Schematic: https://github.com/bzeiss/xfm2-pcbs/blob/main/extended/pdf/schematic.
 | 2        | C2, C3                       | 10uF                  | polarized ceramic capacitor                                                                                                                                                            |
 | 2        | C4, C5                       | 10uF                  | Polarized tantalum capacitor                                                                                                                                                  |
 | 2        | C6, C7                       | 330p-560p             | Unpolarized ceramic capacitor                                                                                                                                                            |
-| 1        | C8                           | 0.33uF                | Polarized tantalum capacitor                                                                                                                                                   |
-| 1        | C9                           | 0.1uF                 | Polarized tantalum capacitor                                                                                                                                                   |
+| 1        | C8                           | 0.33uF                | Polarized ceramic capacitor                                                                                                                                                   |
+| 1        | C9                           | 0.1uF                 | Polarized ceramic capacitor                                                                                                                                                   |
 | 1        | D1                           | 1N4148                | 1N4148 Diode                                                                                                                                                                            |
 | 1        | D2                           | LED_MIDI_IN           | Light emitting diode                                                                                                                                                             |
 | 1        | D3                           | LED_MIDI_OUT          | Light emitting diode                                                                                                                                                             |
