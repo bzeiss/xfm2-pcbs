@@ -32,11 +32,22 @@ Please know what you are doing when you intend to use this.
 The BOM is the same as the one futur3soundz, except for the optional pins that you may or may not want to add. For that, you'll need some additional 2.54mm pin headers. Please use sockets at least for the CMOD A7 and possibly also for the DAC.
 
 ## XFM2/XVA Extended PCB
-This is work in progress. The first version is the repository had errors. The new one needs is I think done now and I have ordered a test pcb. Don't use it yet as it's still untested.
+This PCB is designed to offer most of the functionality that the device offers. The current version v1.1 works mostly, but the A100 connector and associated control voltage functionality don't work properly and require an updated design.
+
+So, for the time being, **do not install**:
+-  the A100 connector J7
+-  the negative voltage regulator U9, its capacitors C8 and C9
+-  the opamp MCP6004 U8 with its associated components:
+-  audio jack J8, R11, R13, R15, C6, R17
+-  audio jack J9, R12, R14, R16, C7, R18
+
 
 ![image](https://user-images.githubusercontent.com/884834/123553683-003fd800-d77d-11eb-9ecb-b90e794388ec.png)
 
 ![image](https://user-images.githubusercontent.com/884834/123553788-8e1bc300-d77d-11eb-8298-3ce04cf766a5.png)
+
+![20210907_152436](https://user-images.githubusercontent.com/884834/132352785-3404dd0a-1305-42f5-af1c-3488d2239ecf.jpg)
+
 
 Schematic: https://github.com/bzeiss/xfm2-pcbs/blob/main/extended/pdf/schematic.pdf
 
@@ -45,11 +56,11 @@ Schematic: https://github.com/bzeiss/xfm2-pcbs/blob/main/extended/pdf/schematic.
 | Quantity | Ref                          | Value                 | Description                                                                                                                                                                      |
 | -------- | ---------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1        | C1                           | 10nF                  | Unpolarized ceramic capacitor                                                                                                                                                            |
-| 2        | C2, C3                       | 10uF                  | polarized tantalum capacitor                                                                                                                                                            |
+| 2        | C2, C3                       | 10uF                  | polarized ceramic capacitor                                                                                                                                                            |
 | 2        | C4, C5                       | 10uF                  | Polarized tantalum capacitor                                                                                                                                                  |
-| 2        | C6, C7                       | 330p-560p             | Unpolarized capacitor                                                                                                                                                            |
-| 1        | C8                           | 0.33uF                | Polarized ceramic capacitor                                                                                                                                                   |
-| 1        | C9                           | 0.1uF                 | Polarized ceramic capacitor                                                                                                                                                   |
+| 2        | C6, C7                       | 330p-560p             | Unpolarized ceramic capacitor                                                                                                                                                            |
+| 1        | C8                           | 0.33uF                | Polarized tantalum capacitor                                                                                                                                                   |
+| 1        | C9                           | 0.1uF                 | Polarized tantalum capacitor                                                                                                                                                   |
 | 1        | D1                           | 1N4148                | 1N4148 Diode                                                                                                                                                                            |
 | 1        | D2                           | LED_MIDI_IN           | Light emitting diode                                                                                                                                                             |
 | 1        | D3                           | LED_MIDI_OUT          | Light emitting diode                                                                                                                                                             |
