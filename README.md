@@ -50,6 +50,10 @@ Schematic: https://github.com/bzeiss/xfm2-pcbs/blob/main/extended/pdf/schematic.
 
 With the current version, CV jacks haven't been tested fully.
 
+### Important usage notes
+- According to the Cmod A7 Reference Manual, you must not connect the micro-usb port on the Cmod A7 and an external power source at the same time (Page 3) as they both drive the VU pin. So you must disconnect the USB host before connecing the A100 connector or the power jack externally. That means, you cannot program the XFM2/XVA1 synths via micro-usb when you power it through the A100 connector or the power jack. You must do that either through the uart pins or midi. 
+- For the control voltage jacks to work, you must power the board through the A100 connector as the boards needs the -5V (from the -12V A100 source) as reference voltage to downscale the signal to 3.3V.
+
 ### BOM
 
 | Quantity | Ref                          | Value                 | Description                                                                                                                                                                      |
