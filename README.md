@@ -100,3 +100,4 @@ With the current version, CV jacks haven't been tested fully.
 
 ### Build notes
 - C8 and C9 must be unpolarized ceramic capacitors (unlike shown in the schematic)
+- There are weird effects when using the control voltage pins that the fpga begins to blink yellow and stutter. I suspect that higher ohm resistors are needed for R17 and R18. This is currently in testing.
