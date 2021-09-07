@@ -43,7 +43,8 @@ This PCB is designed to offer most of the functionality that the device offers, 
 
 ![image](https://user-images.githubusercontent.com/884834/123553788-8e1bc300-d77d-11eb-8298-3ce04cf766a5.png)
 
-![20210907_152436](https://user-images.githubusercontent.com/884834/132352785-3404dd0a-1305-42f5-af1c-3488d2239ecf.jpg)
+![20210907_161729](https://user-images.githubusercontent.com/884834/132360736-ee1d62ed-7840-4739-87ed-c8730edc463d.jpg)
+
 
 Schematic: https://github.com/bzeiss/xfm2-pcbs/blob/main/extended/pdf/schematic.pdf
 
