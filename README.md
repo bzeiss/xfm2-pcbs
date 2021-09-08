@@ -48,9 +48,8 @@ This PCB is designed to offer most of the functionality that the device offers, 
 
 Schematic: https://github.com/bzeiss/xfm2-pcbs/blob/main/extended/pdf/schematic.pdf
 
-With the current version, CV jacks haven't been tested fully.
-
 ### Important usage notes
+- **The control voltage functionality is unfortunately not working properly with the current version! The CV inputs are oscillating. It seems that a new revision is needed.** Hence, be aware of this if you plan to build version 1.2.
 - According to the Cmod A7 Reference Manual, you must not connect the micro-usb port on the Cmod A7 and an external power source at the same time (Page 3) as they both drive the VU pin. So you must disconnect the USB host before connecing the A100 connector or the power jack externally. That means, you cannot program the XFM2/XVA1 synths via micro-usb when you power it through the A100 connector or the power jack. You must do that either through the uart pins or midi. 
 - For the control voltage jacks to work, you must power the board through the A100 connector as the boards needs the -5V (from the -12V A100 source) as reference voltage to downscale the signal to 3.3V.
 
@@ -100,4 +99,3 @@ With the current version, CV jacks haven't been tested fully.
 
 ### Build notes
 - C8 and C9 must be unpolarized ceramic capacitors (unlike shown in the schematic)
-- There are weird effects when using the control voltage pins that the fpga begins to blink yellow and stutter. I suspect that higher ohm resistors are needed for R17 and R18. This is currently in testing.
