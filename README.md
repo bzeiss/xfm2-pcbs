@@ -41,10 +41,10 @@ This PCB is designed to offer most of the functionality that the device offers, 
 
 ![image](https://user-images.githubusercontent.com/884834/123553683-003fd800-d77d-11eb-9ecb-b90e794388ec.png)
 
-![image](https://user-images.githubusercontent.com/884834/123553788-8e1bc300-d77d-11eb-8298-3ce04cf766a5.png)
-
 ![20210907_161729](https://user-images.githubusercontent.com/884834/132360736-ee1d62ed-7840-4739-87ed-c8730edc463d.jpg)
 
+Pin Breakout:
+![image](https://user-images.githubusercontent.com/884834/132962229-cfe04a7b-50f3-444d-8dc5-3d1263e4f87c.png)
 
 Schematic: https://github.com/bzeiss/xfm2-pcbs/blob/main/extended/pdf/schematic.pdf
 
