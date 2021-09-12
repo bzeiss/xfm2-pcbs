@@ -19,6 +19,8 @@ public:
   int setSecondUnitMidiChannel(byte channelNumber);
   int setLayerMode(bool enabled);
   void printLastCommandResult() const;
+  char *readXva1Name();
+  void dump();
 private:
   HardwareSerial *serial;
   byte lastResult;

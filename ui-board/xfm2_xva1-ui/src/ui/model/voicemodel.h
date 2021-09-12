@@ -3,11 +3,14 @@
 
 class VoiceModel {
 public:
-    VoiceModel(const char *voiceName);
-    ~VoiceModel();
-    const char *getVoiceName();
+  VoiceModel(const char *voiceName, const byte voiceNumber);
+  ~VoiceModel();
+  const char *getVoiceName();
+  byte getVoiceNumber();
+  void setVoiceNumber(const byte voiceNumber);
 private:
-    char *voiceName = nullptr;
+  char *voiceName = nullptr;
+  byte voiceNumber;
 };
 
 #endif

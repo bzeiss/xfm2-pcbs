@@ -12,7 +12,7 @@ public:
   void updateVoiceModel(VoiceModel *voiceModel);
 private:
   VoiceModel *voiceModel;
-  static void drawVoiceHead();
+  void drawVoiceHead();
   void drawPatchName();
 };
 

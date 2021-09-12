@@ -10,6 +10,7 @@ CtrlBoard::CtrlBoard() {
   this->xfm2Hw = new Xfm2Hw(&Serial1);
   this->xfm2Unit1 = new Xfm2Program(this->xfm2Hw);
   this->xfm2Unit2 = new Xfm2Program(this->xfm2Hw);
+  this->xfm2Hw->loadProgram(0);
 }
 
 // ---------------------------------------------------------------------------------------
@@ -41,6 +42,7 @@ CtrlBoard::~CtrlBoard() = default;
 
 void CtrlBoard::setVoiceMode(VoiceMode *voiceModeParam) {
   this->voiceMode = voiceModeParam;
+  updateVoiceModel();
 }
 
 // ---------------------------------------------------------------------------------------
@@ -77,35 +79,35 @@ void CtrlBoard::handleLoop() {
 void CtrlBoard::handleFunctioButtons() {
   if (!mcp.digitalRead(BUTTON1_PIN)) {
     buttonPressed_f1();
-    delay(250);
+    delay(150);
   }
   if (!mcp.digitalRead(BUTTON2_PIN)) {
     buttonPressed_f2();
-    delay(250);
+    delay(150);
   }
   if (!mcp.digitalRead(BUTTON3_PIN)) {
     buttonPressed_f3();
-    delay(250);
+    delay(150);
   }
   if (!mcp.digitalRead(BUTTON4_PIN)) {
     buttonPressed_f4();
-    delay(250);
+    delay(150);
   }
   if (!mcp.digitalRead(BUTTON5_PIN)) {
     buttonPressed_f5();
-    delay(250);
+    delay(150);
   }
   if (!mcp.digitalRead(BUTTON6_PIN)) {
     buttonPressed_f6();
-    delay(250);
+    delay(150);
   }
   if (!mcp.digitalRead(BUTTON7_PIN)) {
     buttonPressed_f7();
-    delay(250);
+    delay(150);
   }
   if (!mcp.digitalRead(BUTTON8_PIN)) {
     buttonPressed_f8();
-    delay(250);
+    delay(150);
   }
 }
 
@@ -165,32 +167,39 @@ void CtrlBoard::buttonPressed_f7() {
   Serial.print("Button F7 pressed. Voice Number: ");
   Serial.println(voiceNumber);
 
-  updateVoiceModel();
-
   xfm2Hw->loadProgram(voiceNumber);
+  updateVoiceModel();
 }
 
 // ---------------------------------------------------------------------------------------
 
 void CtrlBoard::buttonPressed_f8() {
   voiceNumber++;
-  if (voiceNumber > 4)
-    voiceNumber = 4;
+  if (voiceNumber > 127)
+    voiceNumber = 127;
 
   Serial.print("Button F8 pressed. Voice Number: ");
   Serial.println(voiceNumber);
 
-  updateVoiceModel();
-  Serial1.begin(500000);
-
   xfm2Hw->loadProgram(voiceNumber);
+  updateVoiceModel();
 }
 
 // ---------------------------------------------------------------------------------------
 
 void CtrlBoard::updateVoiceModel() {
   delete this->voiceMode->getVoiceModel();
-  auto *voiceModel = new VoiceModel(patchNames[voiceNumber]);
+//  auto *voiceModel = new VoiceModel(patchNames[voiceNumber]);
+  char *name = xfm2Hw->readXva1Name();
+
+//  Serial.print("name: ");
+//  Serial.println(name);
+
+//  xfm2Hw->dump();
+//  auto *voiceModel = new VoiceModel(patchNames[voiceNumber % 4]);
+
+  auto *voiceModel = new VoiceModel(name, voiceNumber);
+  free(name);
   voiceMode->updateVoiceModel(voiceModel);
   voiceMode->draw();
 }

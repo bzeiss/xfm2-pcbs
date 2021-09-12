@@ -4,6 +4,7 @@
 // ---------------------------------------------------------------------------------------
 
 Xfm2Hw::Xfm2Hw(HardwareSerial *serial) {
+  Serial.println("[Xfm2Hw] init...");
   this->serial = serial;
   this->serial->begin(500000);
   this->serial->setTimeout(500);
@@ -37,7 +38,34 @@ void Xfm2Hw::updateXfm2SynthModel() {
 
 // ---------------------------------------------------------------------------------------
 
+void Xfm2Hw::dump() {
+  char buffer[512];
+  memset(buffer, 0, sizeof(buffer));
+  this->serial->write('d');
+
+  for (int i = 0; i < 512; i++) {
+    buffer[i] = this->readResultByte();
+  }
+
+//  if (this->serial->available() > 0) {
+//    this->serial->readBytes(buffer, 512);
+//  }
+
+//  for (int i = 0; i < 512; i++) {
+//    if (this->serial->available() > 0) {
+//      buffer[i] = (char) this->serial->read();
+//      Serial.print(buffer[i]);
+//    }
+//  }
+  Serial.println(buffer);
+  Serial.println();
+}
+
+// ---------------------------------------------------------------------------------------
+
 int Xfm2Hw::loadProgram(byte programNumber) {
+  Serial.println("[Xfm2Hw] load program...");
+
   this->lastResult = -1;
 
   if (programNumber < 0)
@@ -202,3 +230,46 @@ byte Xfm2Hw::readResultByte() {
 }
 
 // ---------------------------------------------------------------------------------------
+
+char *Xfm2Hw::readXva1Name() {
+  char buffer[24];
+  memset(buffer, 0, sizeof(buffer));
+  for (int i = 0; i < 24; i++) {
+    buffer[i] = (char) this->getParameter(479 + i);
+  }
+
+  int numChars;
+  for (int i = 23; i >= 0; i--) {
+    if (buffer[i] != ' ') {
+      numChars = i + 1;
+      break;
+    }
+  }
+
+  //Serial.println(buffer);
+
+  char *name = (char *) malloc(numChars + 1);
+  memset(name, 0, numChars + 1);
+  memcpy(name, buffer, numChars);
+  name[numChars + 1] = '\0';
+
+  //Serial.println(name);
+
+  return name;
+
+  //  this->serial->write('g');
+//  this->serial->write(480);
+//  for (int i = 0; i < 24; i++) {
+//    if (this->serial->available() > 0) {
+//      char ch = (char) this->serial->read();
+//      Serial.print(ch);
+//      name[i] = ch;
+//    }
+//  }
+//  Serial.println();
+//  this->serial->write('d');
+//  if (this->serial->available() > 0) {
+//    this->serial->readBytes(buffer, 512);
+//    memcpy(name, &buffer[480], 24);
+//  }
+}
