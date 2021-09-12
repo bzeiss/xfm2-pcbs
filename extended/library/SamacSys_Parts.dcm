@@ -24,4 +24,16 @@ K
 F https://componentsearchengine.com/Datasheets/2/1N4148WT.pdf
 $ENDCMP
 #
+$CMP 74LVCE1G126W5-7
+D SINGLE BUFFER GATE WITH 3-STATE OUTPUT
+K
+F https://componentsearchengine.com/Datasheets/1/74LVCE1G126W5-7.pdf
+$ENDCMP
+#
+$CMP 74LVC1G07QSE-7
+D Buffers & Line Drivers Logic LVC 1 Gate SOT353 T&R 3K
+K
+F https://www.diodes.com/assets/Datasheets/74LVC1G07Q.pdf
+$ENDCMP
+#
 #End Doc Library
