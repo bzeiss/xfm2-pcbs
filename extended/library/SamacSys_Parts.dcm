@@ -36,4 +36,10 @@ K
 F https://www.diodes.com/assets/Datasheets/74LVC1G07Q.pdf
 $ENDCMP
 #
+$CMP 10137062-00021LF
+D USB Connectors USB 3.1 RECE. CONN. Gen 1
+K
+F 
+$ENDCMP
+#
 #End Doc Library
