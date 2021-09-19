@@ -38,19 +38,18 @@ This PCB is designed to offer most of the functionality that the device offers, 
 - A100 connector
 - Control voltage that is regulated down to 3.3V for the Cmod A7 via the MCP6004 opamp. The A100 connector must be used in order for the control voltage pins to work.
 - The board uses the H11L1 opto-coupler instead of the 4N36 of the original circuit. In some occasions, I have experienced hanging notes with the 4N36. The signal seems to be more clean through a schmitt-trigger.
+- buffers and logic level conversion for 3.3v and 5v tx/rx uart breakout pins
+- on-board usb-to-uart IC with a usb-c connector for serial usage when the A100 connector is used (you must not use the fpga micro-usb connector in this case)
 
 ![image](https://user-images.githubusercontent.com/884834/123553683-003fd800-d77d-11eb-9ecb-b90e794388ec.png)
 
 ![20210907_161729](https://user-images.githubusercontent.com/884834/132360736-ee1d62ed-7840-4739-87ed-c8730edc463d.jpg)
 
-Pin Breakout:
-![image](https://user-images.githubusercontent.com/884834/132962229-cfe04a7b-50f3-444d-8dc5-3d1263e4f87c.png)
-
-Schematic: https://github.com/bzeiss/xfm2-pcbs/blob/main/extended/pdf/schematic.pdf
+As the v1.3 is done, but not yet tested, I have removed the links to the gerber and schematic. They are still in the repository, but I suggest to wait building this until v1.3 has been tested properly.
 
 ### Important usage notes
-- **The control voltage functionality is unfortunately not working properly with the current version! The CV inputs are oscillating. It seems that a new revision is needed.** Hence, be aware of this if you plan to build version 1.2.
-- According to the Cmod A7 Reference Manual, you must not connect the micro-usb port on the Cmod A7 and an external power source at the same time (Page 3) as they both drive the VU pin. So you must disconnect the USB host before connecing the A100 connector or the power jack externally. That means, you cannot program the XFM2/XVA1 synths via micro-usb when you power it through the A100 connector or the power jack. You must do that either through the uart pins or midi. 
+- **The A100 connector including the control voltage functionality is unfortunately not working properly with the version 1.1! There is a problem with the power routing on that board. A new revision is needed which is done already, but not yet tested (only ordered).** Hence, be please aware of this. You should build 1.1 only for the base functionality without the A100 connector.
+- According to the Cmod A7 Reference Manual, you must not connect the micro-usb port on the Cmod A7 and an external power source at the same time (Page 3) as they both drive the VU pin. So you must disconnect the USB host before connecing the A100 connector or the power jack externally. That means, you cannot program the XFM2/XVA1 synths via micro-usb when you power it through the A100 connector or the power jack. You must do that either through the uart pins or midi. Version 1.3 has an usb-to-uart IC onboard which can be used in such cases.
 - For the control voltage jacks to work, you must power the board through the A100 connector as the boards needs the -5V (from the -12V A100 source) as reference voltage to downscale the signal to 3.3V.
 
 ### BOM
