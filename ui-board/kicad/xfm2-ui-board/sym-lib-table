@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name samacsys-br24t)(type Legacy)(uri ${KIPRJMOD}/library/BR24T1MF-3AME2.lib)(options "")(descr ""))
+)
