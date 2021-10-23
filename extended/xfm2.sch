@@ -5,8 +5,8 @@ $Descr A2 23386 16535
 encoding utf-8
 Sheet 1 1
 Title "xfm2/xva1 extended pcb"
-Date "2021-09-19"
-Rev "1.3"
+Date "2021-10-23"
+Rev "1.34"
 Comp ""
 Comment1 ""
 Comment2 ""
