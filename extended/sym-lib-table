@@ -3,4 +3,5 @@
   (lib (name samacsys)(type Legacy)(uri ${KIPRJMOD}/library/SamacSys_Parts.lib)(options "")(descr ""))
   (lib (name usb3-1)(type Legacy)(uri ${KIPRJMOD}/library/UJ31-CH-3-MSMT-TR-67.lib)(options "")(descr ""))
   (lib (name usb3-2)(type Legacy)(uri ${KIPRJMOD}/library/USB4105-GF-A.lib)(options "")(descr ""))
+  (lib (name mosfet)(type Legacy)(uri ${KIPRJMOD}/library/SI2323DS-T1-E3.lib)(options "")(descr ""))
 )

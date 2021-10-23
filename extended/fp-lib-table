@@ -2,4 +2,5 @@
   (lib (name xfm2)(type KiCad)(uri ${KIPRJMOD}/library/xfm2.pretty)(options "")(descr ""))
   (lib (name avconnectors)(type KiCad)(uri ${KIPRJMOD}/library/w_conn_av.pretty)(options "")(descr ""))
   (lib (name samacsys)(type KiCad)(uri ${KIPRJMOD}/library/SamacSys_Parts.pretty)(options "")(descr ""))
+  (lib (name greatscott)(type KiCad)(uri ${KIPRJMOD}/library/gsg-modules.pretty)(options "")(descr ""))
 )
