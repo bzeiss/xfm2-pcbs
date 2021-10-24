@@ -1,3 +1,7 @@
 (fp_lib_table
   (lib (name samacsys)(type KiCad)(uri ${KIPRJMOD}/library/SamacSys_Parts.pretty)(options "")(descr ""))
+  (lib (name gsg)(type KiCad)(uri ${KIPRJMOD}/library/gsg-modules.pretty)(options "")(descr ""))
+  (lib (name w_conn_av)(type KiCad)(uri ${KIPRJMOD}/library/w_conn_av.pretty)(options "")(descr ""))
+  (lib (name xfm2)(type KiCad)(uri ${KIPRJMOD}/library/xfm2.pretty)(options "")(descr ""))
+  (lib (name digikey-footprints)(type KiCad)(uri ${KIPRJMOD}/library/digikey-footprints.pretty)(options "")(descr ""))
 )

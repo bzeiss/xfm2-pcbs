@@ -1,0 +1,28 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model RS30111A9012
+#/556434/499385/2.49/5/4/Connector
+DEF RS30111A9012 J 0 30 Y Y 1 F N
+F0 "J" 750 300 50 H V L CNN
+F1 "RS30111A9012" 750 200 50 H V L CNN
+F2 "RS30111A9012" 750 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/RS30111A9012.pdf" 750 0 50 H I L CNN
+F4 "Potentiometers & Variable Resistors Through Hole RoHS" 750 -100 50 H I L CNN "Description"
+F5 "17" 750 -200 50 H I L CNN "Height"
+F6 "ALPS" 750 -300 50 H I L CNN "Manufacturer_Name"
+F7 "RS30111A9012" 750 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "688-RS30111A9012" 750 -500 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.co.uk/ProductDetail/ALPS/RS30111A9012?qs=E%2FLhbOa5ENV1ztzKXoD1fQ%3D%3D" 750 -600 50 H I L CNN "Mouser Price/Stock"
+F10 "" 750 -700 50 H I L CNN "Arrow Part Number"
+F11 "" 750 -800 50 H I L CNN "Arrow Price/Stock"
+DRAW
+X 1 1 0 0 200 R 50 50 0 0 P
+X 2 2 0 -100 200 R 50 50 0 0 P
+X 3 3 0 -200 200 R 50 50 0 0 P
+X MH1 MH1 900 0 200 L 50 50 0 0 P
+X MH2 MH2 900 -100 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 700 100 700 -300 200 -300 200 100 N
+ENDDRAW
+ENDDEF
+#
+#End Library

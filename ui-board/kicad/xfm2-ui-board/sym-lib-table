@@ -1,3 +1,7 @@
 (sym_lib_table
   (lib (name samacsys-br24t)(type Legacy)(uri ${KIPRJMOD}/library/BR24T1MF-3AME2.lib)(options "")(descr ""))
+  (lib (name SI2323DS)(type Legacy)(uri ${KIPRJMOD}/library/SI2323DS-T1-E3.lib)(options "")(descr ""))
+  (lib (name USB4105)(type Legacy)(uri ${KIPRJMOD}/library/USB4105-GF-a.lib)(options "")(descr ""))
+  (lib (name RS30111A9012)(type Legacy)(uri ${KIPRJMOD}/library/RS30111A9012.lib)(options "")(descr ""))
+  (lib (name PEC16-4015F)(type Legacy)(uri ${KIPRJMOD}/library/PEC16-4015F-N0024.lib)(options "")(descr ""))
 )
