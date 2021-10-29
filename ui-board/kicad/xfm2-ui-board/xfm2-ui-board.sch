@@ -116,7 +116,7 @@ U 1 1 621CFA9B
 P 5200 4050
 F 0 "Y1" V 5154 4181 50  0000 L CNN
 F 1 "Crystal 16MHz" V 5245 4181 50  0000 L CNN
-F 2 "Crystal:Crystal_SMD_2012-2Pin_2.0x1.2mm_HandSoldering" H 5200 4050 50  0001 C CNN
+F 2 "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm_HandSoldering" H 5200 4050 50  0001 C CNN
 F 3 "~" H 5200 4050 50  0001 C CNN
 	1    5200 4050
 	0    1    1    0   
