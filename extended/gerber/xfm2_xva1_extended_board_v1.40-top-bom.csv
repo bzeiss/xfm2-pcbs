@@ -13,7 +13,7 @@ Comment,Designator,Footprint,LCSC Part Number
 "LED_MIDI_OUT","D3","LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder","C2296"
 "LED_CLIP","D5","LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder","C434431"
 "1N5819/SS14","D6,D8,D9,D10","Diode_SMD:D_SMA-SMB_Universal_Handsoldering","C2480"
-"LED_POWER","D7","LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder","C2297"
+"LED_POWER","D7","LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder","C434432"
 "Ferrite_Bead","FB1,FB2,FB3,FB4,FB5,FB6","Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder","C76810"
 "74LVC1G07QSE-7","IC1,IC2","greatscott:SOT25","C507244"
 "220","R1","Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder","C17557"
