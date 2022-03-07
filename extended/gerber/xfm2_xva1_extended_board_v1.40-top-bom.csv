@@ -33,5 +33,4 @@ Comment,Designator,Footprint,LCSC Part Number
 "74HC14","U5","Package_SO:SO-14_3.9x8.65mm_P1.27mm","C6820"
 "LM1117-5.0","U6","Package_TO_SOT_SMD:SOT-223-3_TabPin2","C126028"
 "LM1117-3.3","U7","Package_TO_SOT_SMD:SOT-223-3_TabPin2","C126027"
-"MCP6004","U8","Package_SO:SO-14_5.3x10.2mm_P1.27mm","C7378"
 "L79L05_SO8","U9","Package_SO:SOIC-8_3.9x4.9mm_P1.27mm","C2802525"
