@@ -9,38 +9,43 @@
 
 set(CMAKE_CONFIGURATION_TYPES "megaatmega2560" CACHE STRING "Build Types reflect PlatformIO Environments" FORCE)
 
+# Convert "Home Directory" that may contain unescaped backslashes on Windows
+file(TO_CMAKE_PATH $ENV{HOMEDRIVE}$ENV{HOMEPATH} ENV_HOME_PATH)
 
-SET(CMAKE_C_COMPILER "$ENV{HOMEDRIVE}$ENV{HOMEPATH}/.platformio/packages/toolchain-atmelavr/bin/avr-gcc.exe")
-SET(CMAKE_CXX_COMPILER "$ENV{HOMEDRIVE}$ENV{HOMEPATH}/.platformio/packages/toolchain-atmelavr/bin/avr-g++.exe")
-SET(CMAKE_CXX_FLAGS "-fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -Os -Wall -ffunction-sections -fdata-sections -flto -mmcu=atmega2560")
-SET(CMAKE_C_FLAGS "-std=gnu11 -fno-fat-lto-objects -Os -Wall -ffunction-sections -fdata-sections -flto -mmcu=atmega2560")
+
+SET(CMAKE_C_COMPILER "${ENV_HOME_PATH}/.platformio/packages/toolchain-atmelavr/bin/avr-gcc.exe")
+SET(CMAKE_CXX_COMPILER "${ENV_HOME_PATH}/.platformio/packages/toolchain-atmelavr/bin/avr-g++.exe")
+SET(CMAKE_CXX_FLAGS "-fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -Wno-unknown-pragmas -Os -Wall -ffunction-sections -fdata-sections -flto -mmcu=atmega2560")
+SET(CMAKE_C_FLAGS "-std=gnu11 -fno-fat-lto-objects -Wno-unknown-pragmas -Os -Wall -ffunction-sections -fdata-sections -flto -mmcu=atmega2560")
 
 SET(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 11)
 
 if (CMAKE_BUILD_TYPE MATCHES "megaatmega2560")
-    add_definitions(-D'PLATFORMIO=50101')
-    add_definitions(-D'ARDUINO_AVR_MEGA2560')
-    add_definitions(-D'F_CPU=16000000L')
-    add_definitions(-D'ARDUINO_ARCH_AVR')
-    add_definitions(-D'ARDUINO=10808')
-    add_definitions(-D'__AVR_ATmega2560__')
+    add_definitions(-DPLATFORMIO=50205)
+    add_definitions(-DARDUINO_AVR_MEGA2560)
+    add_definitions(-DF_CPU=16000000L)
+    add_definitions(-DARDUINO_ARCH_AVR)
+    add_definitions(-DARDUINO=10808)
+    add_definitions(-D__AVR_ATmega2560__)
 
     include_directories("${CMAKE_CURRENT_LIST_DIR}/include")
     include_directories("${CMAKE_CURRENT_LIST_DIR}/src")
+    include_directories("${CMAKE_CURRENT_LIST_DIR}/.pio/libdeps/megaatmega2560/Adafruit MCP23017 Arduino Library/src")
+    include_directories("${CMAKE_CURRENT_LIST_DIR}/.pio/libdeps/megaatmega2560/Adafruit BusIO")
     include_directories("${CMAKE_CURRENT_LIST_DIR}/.pio/libdeps/megaatmega2560/SoftwareSerial")
-    include_directories("${CMAKE_CURRENT_LIST_DIR}/.pio/libdeps/megaatmega2560/Adafruit MCP23017 Arduino Library")
     include_directories("${CMAKE_CURRENT_LIST_DIR}/.pio/libdeps/megaatmega2560/U8g2/src")
-    include_directories("$ENV{HOMEDRIVE}$ENV{HOMEPATH}/.platformio/packages/framework-arduino-avr/libraries/Wire/src")
-    include_directories("$ENV{HOMEDRIVE}$ENV{HOMEPATH}/.platformio/packages/framework-arduino-avr/libraries/SPI/src")
-    include_directories("$ENV{HOMEDRIVE}$ENV{HOMEPATH}/.platformio/packages/framework-arduino-avr/cores/arduino")
-    include_directories("$ENV{HOMEDRIVE}$ENV{HOMEPATH}/.platformio/packages/framework-arduino-avr/variants/mega")
-    include_directories("$ENV{HOMEDRIVE}$ENV{HOMEPATH}/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src")
-    include_directories("$ENV{HOMEDRIVE}$ENV{HOMEPATH}/.platformio/packages/framework-arduino-avr/libraries/HID/src")
-    include_directories("$ENV{HOMEDRIVE}$ENV{HOMEPATH}/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src")
-    include_directories("$ENV{HOMEDRIVE}$ENV{HOMEPATH}/.platformio/packages/toolchain-atmelavr/lib/gcc/avr/7.3.0/include")
-    include_directories("$ENV{HOMEDRIVE}$ENV{HOMEPATH}/.platformio/packages/toolchain-atmelavr/lib/gcc/avr/7.3.0/include-fixed")
-    include_directories("$ENV{HOMEDRIVE}$ENV{HOMEPATH}/.platformio/packages/toolchain-atmelavr/avr/include")
+    include_directories("${ENV_HOME_PATH}/.platformio/packages/framework-arduino-avr/libraries/Wire/src")
+    include_directories("${ENV_HOME_PATH}/.platformio/packages/framework-arduino-avr/libraries/SPI/src")
+    include_directories("${ENV_HOME_PATH}/.platformio/packages/framework-arduino-avr/cores/arduino")
+    include_directories("${ENV_HOME_PATH}/.platformio/packages/framework-arduino-avr/variants/mega")
+    include_directories("${CMAKE_CURRENT_LIST_DIR}/.pio/libdeps/megaatmega2560/Adafruit MCP23017 Arduino Library@1.3.0")
+    include_directories("${ENV_HOME_PATH}/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src")
+    include_directories("${ENV_HOME_PATH}/.platformio/packages/framework-arduino-avr/libraries/HID/src")
+    include_directories("${ENV_HOME_PATH}/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src")
+    include_directories("${ENV_HOME_PATH}/.platformio/packages/toolchain-atmelavr/lib/gcc/avr/7.3.0/include")
+    include_directories("${ENV_HOME_PATH}/.platformio/packages/toolchain-atmelavr/lib/gcc/avr/7.3.0/include-fixed")
+    include_directories("${ENV_HOME_PATH}/.platformio/packages/toolchain-atmelavr/avr/include")
 
     FILE(GLOB_RECURSE EXTRA_LIB_SOURCES
         ${CMAKE_CURRENT_LIST_DIR}/.pio/libdeps/megaatmega2560/*.*
@@ -51,6 +56,7 @@ endif()
 FILE(GLOB_RECURSE SRC_LIST
     ${CMAKE_CURRENT_LIST_DIR}/src/*.*
     ${CMAKE_CURRENT_LIST_DIR}/lib/*.*
+    ${CMAKE_CURRENT_LIST_DIR}/test/*.*
 )
 
 list(APPEND SRC_LIST ${EXTRA_LIB_SOURCES})

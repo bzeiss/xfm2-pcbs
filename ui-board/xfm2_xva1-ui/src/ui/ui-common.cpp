@@ -48,7 +48,7 @@ void setupUi() {
                                       15, /*reset=*/
                                       16); // Connect RD with +5V, FS0 and FS1 with GND
 
-//    u8g2->setDisplayRotation(U8G2_R2);
+  u8g2->setDisplayRotation(U8G2_R2);
   u8g2->begin();
   u8g2->enableUTF8Print();
 }
